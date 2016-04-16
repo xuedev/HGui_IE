@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MFC实现WebGUI - CDHtmlDialog - 电脑科技 - 从此网</title>
+<base href="http://www.congci.com/" />
+<meta name="google-site-verification" content="KCZEpsPQaoR3wrCEhiCzvR5TGFVynjEmd5VzDH5KToQ" />
+<link rel="icon" href="http://res.congci.com/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://res.congci.com/favicon.ico" type="image/x-icon" />
+<link href="http://res.congci.com/css/css.css" type="text/css" rel="stylesheet" />
+<script	src="http://wangxiaodong.com/js/jquery-1.7.1.min.js"></script>
+<script src="http://res.congci.com/js/js.js"></script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body style="max-width:1260px;">
+	<header>
+		<div id="navpos">
+	<div style="width:100%;min-width: 990px; max-width: 1260px; margin: auto; padding-top: 0px;">
+		<div style="float: right;">
+		<div id="toparea"></div>
+		</div>
+		<div style="margin: 2px 0px 0px 2px; color: silver;">
+			<div style="text-align: left;">
+				<div style="float: left; width: 500px;">
+					<div style="float: left;">
+
+
+						<div id="sitetext"
+							style="font-size: 14px; margin-top: 4px;float:left">
+							<a href="http://www.congci.com" style="font-weight: bold; color: black;">
+								<img src="http://www.congci.com/image/home.png" />
+							</a>
+						</div>
+						
+						<div id="sitetext"
+							style="font-size: 14px; margin: 4px;float:left">
+							<a href="http://www.congci.com/rss" target="_blank" style="font-weight: bold; color: black;">
+								<img src="../image/rss.jpg" />
+							</a>
+						</div>
+
+
+					</div>
+			
+<div style="float:left;margin-left:6px;">
+<a href="http://www.congci.com/help"><img src="../image/iphoneicon.jpg"
+							style="float: left; width: 20px; margin-top: 2px;" /><div style="padding-top: 6px;width:70px;font-size: 12px;color:silver;font-weight: bold;">手机版</div></a>
+						</div>
+						<img src="../image/qq.jpg"
+							style="float: left; width: 24px; margin-top: 1px;" />
+				<div style="padding-top: 6px;">群:
+							<b style='color: red; margin-right: 2px;'>8807551</b>
+						
+				</div>
+</div>
+		</div>
+		
+	</div>
+
+</div>
+</div>
+<br /><br />
+<div style="width:auto;min-width: 990px; max-width: 1260px;margin: auto; text-align: center;">
+
+	<div
+		style="text-align: left; width:auto;min-width: 990px; max-width: 1260px;margin: 1px 0px; color: silver; clear: both;">
+
+
+		<div
+			style="width: 120px; margin-top: 10px;margin-right: 20px; float: left; text-align: center;">
+			<a href="http://www.congci.com" style="margin: 1px 3px;"><img
+				style="box-shadow: 0 0 10px #06C;"
+				src="../image/logo.gif" alt=""
+				style="border: 0px;" /> </a>
+				<div style="margin-top:6px;margin-left:6px;font-size:14px;font-weight: bold;">
+				<a href="http://www.congci.com" >学习从此开始</a>
+				</div>
+		</div>
+		 <span style="float: left; margin: 3px 20px;"><a  id="newsIcon"
+			href="http://news.congci.com"
+			style="color: silver; font-weight: normal;"><img
+				src="../image/composition_pic.gif"
+				style="display: block; margin: 0px 3px; width: 48px; height: 48px; color: silver;">新闻资讯</a>
+		</span> <span  style="float: left; margin: 3px 20px;"><a id="downloadIcon"
+			href="http://download.congci.com"
+			style="color: silver; font-weight: normal;"><img
+				src="../image/fullmark_pic.gif"
+				style="display: block; margin: 0px 3px; width: 48px; height: 48px; color: silver;">资源下载</a>
+		</span><span style="float: left; margin: 3px 20px;"><a  id="toolsIcon" href="../tools"
+			style="color: silver; font-weight: normal;"><img
+				src="../image/guide_pic.gif"
+				style="display: block; margin: 0px 3px; width: 48px; height: 48px;">学习工具</a>
+		</span><span  style="float: left; margin: 3px 20px;"><a
+			href="http://www.iqadd.com"
+			style="color: silver; font-weight: normal;"><img
+				src="../image/english_site.jpg"
+				style="display: block; margin: 0px 3px; width: 48px; height: 48px;">English</a>
+		</span><span  style="float: left; margin: 3px 20px;"><a
+			href="http://zh.iqadd.com"
+			style="color: silver; font-weight: normal;"><img
+				src="../image/hktw.gif"
+				style="display: block; margin: 6px 3px; width: 48px; height: 36px;">繁體中文</a>
+		</span> <span style="float: left; margin: 3px 20px;"><a  id="topicsIcon" target="_blank" href="http://shop59303924.taobao.com/"
+			style="color: silver; font-weight: normal;"><img
+				src="../image/fengshangok.jpg"
+				style="display: block; margin: 0px 3px; width: 48px; height: 48px;">风尚OK服饰</a>
+		</span> 
+		<div id="adArea"
+			style="float: left; margin-left: 54px; height: 55px; height: 62px\9; color: silver; font-weight: bold; line-height: 24px; padding-top: 5px; width: 472px;">
+
+
+			<script type="text/javascript">
+			<!--
+				google_ad_client = "ca-pub-6003849688262556";
+				/* 468x60, 创建于 10-7-30 */
+				google_ad_slot = "1655148913";
+				google_ad_width = 468;
+				google_ad_height = 60;
+			//-->
+			</script>
+			<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				
+			</script>
+		</div>
+
+
+<div style="clear: both;"></div>
+
+		<!--tabs-->
+
+		<nav  class="border r-box"
+			style="width:auto;min-width: 990px; max-width: 1260px; margin: 2px 0px 0px 0px;" >
+			<ul>
+				<li><a id='menuid'
+					style="cursor: pointer;" href="http://www.congci.com"><img src="../image/home.png" />
+				</a></li>
+
+				<li><a style='cursor: pointer;'  id='menuidschool' href='http://www.congci.com/category/school'   >学校</a></li><li><a style='cursor: pointer;'  id='menuidtech' href='http://www.congci.com/category/tech'   >科技</a></li><li><a style='cursor: pointer;'  id='menuidarts' href='http://www.congci.com/category/arts'   >艺术</a></li><li><a style='cursor: pointer;'  id='menuidlife' href='http://www.congci.com/category/life'   >生活</a></li><li><a style='cursor: pointer;'  id='menuidjob' href='http://www.congci.com/category/job'   >职场</a></li><li><a style='cursor: pointer;'  id='menuidfinance' href='http://www.congci.com/category/finance'   >财经</a></li><li><a style='cursor: pointer;'  id='menuidfashion' href='http://www.congci.com/category/fashion'   >时尚</a></li><li><a style='cursor: pointer;'  id='menuidgames' href='http://www.congci.com/category/games'   >游戏</a></li><li><a style='cursor: pointer;'  id='menuidinspirational' href='http://www.congci.com/category/inspirational'   >励志</a></li><li><a style='cursor: pointer;'  id='menuidelse' href='http://www.congci.com/category/else'   >其他</a></li><li><a style="cursor: pointer;" target="_blank" href="http://www.congci.com/tag/公开课">公开课</a></li>
+ <li><a style="cursor: pointer;" href="http://www.congci.com/help">帮助</a></li>
+
+
+			</ul>
+
+				<script>
+				document.getElementById('menuid').style.color = '#FF0084';</script>
+				<div style="clear: both;"></div>
+	
+		</nav>
+
+	</div>
+				<div style="clear: both;"></div>
+<div style="width:auto;min-width: 990px; max-width: 1260px;padding-top:1px;" >
+
+						<form style="float:left;width:auto;margin-left:2px;margin-top:2px\9;"
+							id="searchForm" action="../s" >
+							
+							<input style="float:left;width:190px;" type="text" name="q" value="" placeholder="搜索知识" x-webkit-speech		x-webkit-grammar="builtin:search" /> 
+			
+							<img style="cursor: pointer;float:left;margin-left:4px;"
+								src="../image/fangdajing.png" onclick="document.getElementById('searchForm').submit()" /> 
+						
+				
+
+						</form><div id="notice" style="width:auto;margin-left:230px;min-width: 750px; max-width: 1020px;"></div>
+<div style="clear: both;"></div>
+
+
+</div>
+
+</div></header>
+	<article  style="width:auto;max-width:1260px;">
+		<div
+			style="text-align: left; width: 1250px;margin: auto;">
+
+			<div class="r-box"
+				style="text-align: center;float: left; width: 980px; border: solid 1px silver; background-image: url('../image/tiao.gif'); background-repeat: repeat-x;">
+			<div style=" border-bottom: solid 1px silver;margin:4px;">
+		
+							<img src='http://res.congci.com/upload/image/small/20100131204019cplusplusdefineconst .jpg'
+								style="float: left;height: 63px; width: 84px; cursor: hand;"
+								alt="MFC实现WebGUI - CDHtmlDialog" title="MFC实现WebGUI - CDHtmlDialog" />
+		
+					<div style="float: left;text-align: center; width:830px;">
+					<div style="text-align: center;">
+					<h1 style="margin: 0px;">
+						<a href="../item/mfc-webgui-cdhtmldialog">MFC实现WebGUI - CDHtmlDialog</a>
+					</h1>
+					</div>
+
+
+
+
+
+					<div style="text-align: right;float:left;padding-top: 6px;margin-left:250px;"><span style="color: silver;"><time datetime="2011-03-25" pubdate="pubdate">2011-03-25 03:56</time> 
+					<script>
+					var v='作者:i浏览量:';
+					document.write(v);
+					</script>
+						<span id="clicked"></span></span>
+					</div>
+				<div style="float:left;">
+
+		
+
+<div style="height:30px;margin-left:6px;width:100%">
+
+
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+        <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
+        <a class="bds_tqq"></a>
+        <a class="bds_renren"></a>
+        <span class="bds_more"></span>
+		<a class="shareCount"></a>
+    </div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=35087" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+var bds_config = {'review':'off'};
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+
+
+
+
+
+</div></div>
+			
+					</div>
+								<div style="padding-top: 5px;">
+									<img style='float:left;' src='../image/free.gif' /></div>
+							<div style="clear: both;"></div>
+</div>
+				
+				<div style="clear: both;"></div>
+
+				<div style="text-align: center;">
+<div id="leftlayer" style="float:left;width:50px;margin-top:0px;position:absolute;left:10px;top:230px;">
+<style>
+#shang {
+	background:
+		url(../image/shang.png)
+		no-repeat;
+	position: relative;
+	cursor: pointer;
+	height: 48px;
+	width: 48px;
+	margin: 10px 0;
+}
+
+#xia {
+	background:
+		url(../image/xia.png)
+		no-repeat;
+	position: relative;
+	cursor: pointer;
+	height: 48px;
+	width: 48px;
+	margin: 10px 0;
+}
+
+#comt {
+	background:
+		url(../image/comt.png)
+		no-repeat;
+	position: relative;
+	cursor: pointer;
+	height: 48px;
+	width: 48px;
+	margin: 10px 0;
+}
+</style>
+		<div id="shangxia">
+			<div id="shang" onclick="scroll(0,0)"></div>
+			<div id="comt" onclick="scroll(0,document.getElementById('content').offsetHeight-250);scrollEvent();"></div>
+			<!-- <div id="xia" ></div> -->
+		</div>
+		
+			<div style="text-align: center;">
+					<div style="color:silver;"><br />文具盒</div>
+					<div style="color: silver; cursor: pointer;">
+						<a href="../user/notepad.jsp" target="_blank" > <img src="../image/notepad.jpg" style='height: 24px;' /> </a>
+					</div>
+					</div>
+
+</div>
+					<div id="content" style="text-align:left;padding:0px 50px 5px 50px;">
+<div style="text-align: center;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6003849688262556";
+/* 728x90, 创建于 10-7-30 */
+google_ad_slot = "0866193516";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+						<p><span style="color: #4b4b4b; font-family: verdana, Arial, helvetica, sans-seriff; line-height: 19px;">在mfc类层次上，CHTMLView和CDHtmlDialog为开发者提供了创建webgui的一系列基础设施，包括事件机制、窗口行为、以及对html文档操纵接口。我们在此基础上实现webgui很简单，然而仍然困惑我很久，经理也催过我几次我一直未肯决定最终方案。在我脑袋里一直琢磨是要应用程序完全操纵html文档，还是html访问应用获取信息，其实就是它们之间的通信模式。一直到昨天我才定下方案，应用通过IWebBrowser2接口操纵html元素，html通过vbscript、javascript脚本响应本身事件，访问应用。主要是考虑通信自然畅通，而以前我一味想通过应用指令完全控制html元素，导致去解析html文档，费力不讨好。下面开始我的想法：<br /><br />写一个dll，封装CDHtmlDialog，提供一个类似html容器的对话框，功能就是加载html网页，以及创建与html呼应的com组件。它本身不包含与应用功能有关代码，应用有关的部分是html页面和对于的com功能组件。这里需要对CDHtmlDialog进行了适当的改造以适合自己的目标：<br /><br />首先从CDHtmlDialog派生一个类CHTMLContainerDlg，默认情况下会生成一个网页资源，这个网页是这个对话框创建时加载的，我们需要的其实是一个容器而不是一个具体的对话框，所以删除网页资源，修改对话框头文件：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">enum&nbsp;{&nbsp;IDD&nbsp;=&nbsp;IDD_HTMLCONTAINERDLG,&nbsp;IDH&nbsp;=&nbsp;0&nbsp;};</span></div>
+这里把IDH修改为0，因为我们删除了网页资源。然而在对话框创建后会加载该资源，在CDHtmlDialog的OnInitDialog函数里面我们可以看到：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">if&nbsp;(m_nHtmlResID)<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LoadFromResource(m_nHtmlResID);<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;(m_szHtmlResID)<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LoadFromResource(m_szHtmlResID);<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;(m_strCurrentUrl)<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigate(m_strCurrentUrl);</span></div>
+结果就是对话框一出现就会出现加载一个无效地址的页面，出现无法打开链接的页面，为了避免这个问题，需要重载OnInitDialog函数。其实就是拷贝mfc代码然后去掉上面那段代码就ok，强制不加载页面。那么为了加载指定页面，需要一个函数：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">void&nbsp;CHTMLContainerDlg::SetHtmlAndCom(CString&nbsp;strURL,&nbsp;CString&nbsp;strProg)<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;HRESULT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;NOERROR;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;m_strURL&nbsp;=&nbsp;strURL;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;m_spComDisp.CoCreateInstance(strProg);<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;if(FAILED(hr))<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRACE(_T("Some&nbsp;error&nbsp;when&nbsp;create&nbsp;com&nbsp;object<img src="http://www.cppblog.com/Images/dot.gif" alt="" />\n"));<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;SetExternalDispatch(m_spComDisp);<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />}</span></div>
+指定html的url和对应功能组件的progid，这样在网页里面可以通过脚本window.external访问该com组件。<br />这样就可以加载html网页，但是html页面里面的元素风格却是2k风格(至少在ie7以下版本是如此)，这个怕是没起到一点美观作用，为之我考虑了半天，问过做web的人是否有办法，最终还是灵感光临，误撞上了。重载GetHostInfo函数：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">STDMETHODIMP&nbsp;CHTMLContainerDlg::GetHostInfo(DOCHOSTUIINFO*&nbsp;pInfo)<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;pInfo-&gt;dwFlags&nbsp;=&nbsp;DOCHOSTUIFLAG_THEME;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;S_OK;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />}</span></div>
+这个多得不说，^_^。<br />下面就可以演示了，在vs2005里面找个向导来show一下：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">CHTMLContainerDlg&nbsp;&nbsp;&nbsp;&nbsp;dlg;<br /><img id="Codehighlighter1_70_74_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;TCHAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;szPath[MAX_PATH]&nbsp;</span><span style="line-height: 19px; color: #000000;">=</span><span style="line-height: 19px; color: #000000;">&nbsp;</span><span id="Codehighlighter1_70_74_Open_Text" style="line-height: 19px;"><span style="line-height: 19px; color: #000000;">{&nbsp;</span><span style="line-height: 19px; color: #000000;">0</span><span style="line-height: 19px; color: #000000;">&nbsp;}</span></span><span style="line-height: 19px; color: #000000;">;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;CString&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strPath;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;GetCurrentDirectory(MAX_PATH,&nbsp;szPath);<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;strPath&nbsp;</span><span style="line-height: 19px; color: #000000;">=</span><span style="line-height: 19px; color: #000000;">&nbsp;szPath;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;strPath&nbsp;</span><span style="line-height: 19px; color: #000000;">+=</span><span style="line-height: 19px; color: #000000;">&nbsp;_T(</span><span style="line-height: 19px; color: #000000;">"</span><span style="line-height: 19px; color: #000000;">\\Default.htm</span><span style="line-height: 19px; color: #000000;">"</span><span style="line-height: 19px; color: #000000;">);<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;dlg.SetHtmlAndCom(strPath,&nbsp;_T(</span><span style="line-height: 19px; color: #000000;">"</span><span style="line-height: 19px; color: #000000;">TestWebCom.WebComCtrl</span><span style="line-height: 19px; color: #000000;">"</span><span style="line-height: 19px; color: #000000;">));<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;dlg.DoModal();</span></div>
+<br /><img src="http://www.cppblog.com/images/cppblog_com/wlwlxj/730/o_dhtmldlg.JPG" alt="" /><br />对话框标题其实可以通过解析html文档获取title标题设置，目前还未处理。下面看看html与应用交互的组件。<br />生成一个atl工程，TestWebCom，添加一个com组件WebComCtrl，添加方法处理上面那个带...的按钮(文件夹浏览按钮)：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">STDMETHODIMP&nbsp;CWebComCtrl::ShowFolderBrowser(</span><span style="line-height: 19px; color: #0000ff;">void</span><span style="line-height: 19px; color: #000000;">)<br /><img id="Codehighlighter1_50_209_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" /></span><span id="Codehighlighter1_50_209_Open_Text" style="line-height: 19px;"><span style="line-height: 19px; color: #000000;">{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;AFX_MANAGE_STATE(AfxGetStaticModuleState());<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" /><br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #008000;">//</span><span style="line-height: 19px; color: #008000;">&nbsp;TODO:&nbsp;在此添加实现代码</span><span style="line-height: 19px; color: #008000;"><br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" /></span><span style="line-height: 19px; color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;AfxMessageBox(_T(</span><span style="line-height: 19px; color: #000000;">"</span><span style="line-height: 19px; color: #000000;">In&nbsp;Com,&nbsp;you&nbsp;can&nbsp;show&nbsp;folder&nbsp;select&nbsp;dialog</span><span style="line-height: 19px; color: #000000;">"</span><span style="line-height: 19px; color: #000000;">));<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #0000ff;">return</span><span style="line-height: 19px; color: #000000;">&nbsp;S_OK;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />}</span></span></div>
+<br />这里不作具体处理，只是象征性弹出一个对话框。好了，上面我们在对话框里面已经设置了com组件的progid，这里可以把html和组件关联上了，通过脚本可以访问com组件方法：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #0000ff;">&lt;</span><span style="line-height: 19px; color: #800000;">BUTTON&nbsp;</span><span style="line-height: 19px; color: #ff0000;">CLASS</span><span style="line-height: 19px; color: #0000ff;">="buttonClass3Custom"</span><span style="line-height: 19px; color: #ff0000;">&nbsp;ID</span><span style="line-height: 19px; color: #0000ff;">="BrowseBtn"</span><span style="line-height: 19px; color: #ff0000;">&nbsp;TYPE</span><span style="line-height: 19px; color: #0000ff;">="BUTTON"</span><span style="line-height: 19px; color: #ff0000;">&nbsp;TITLE</span><span style="line-height: 19px; color: #0000ff;">="浏览头文件。"</span><span style="line-height: 19px; color: #ff0000;">&nbsp;onClick</span><span style="line-height: 19px; color: #0000ff;">="OnBrowseHeaderFile();"</span><span style="line-height: 19px; color: #0000ff;">&gt;</span><span style="line-height: 19px; color: #000000;"><img src="http://www.cppblog.com/Images/dot.gif" alt="" /></span><span style="line-height: 19px; color: #0000ff;">&lt;/</span><span style="line-height: 19px; color: #800000;">BUTTON</span><span style="line-height: 19px; color: #0000ff;">&gt;</span></div>
+脚本如下：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #0000ff;">function</span><span style="line-height: 19px; color: #000000;">&nbsp;OnBrowseHeaderFile()<br /><img id="Codehighlighter1_30_73_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" /></span><span id="Codehighlighter1_30_73_Open_Text" style="line-height: 19px;"><span style="line-height: 19px; color: #000000;">{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;window.external.ShowFolderBrowser();<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />}</span></span></div>
+下面运行试一试，按下选择文件夹按钮会出现如下询问组件是否安全的对话框：<br /><img src="http://www.cppblog.com/images/cppblog_com/wlwlxj/730/o_dhtmldlg2.JPG" alt="" /><br />这个很恼人，用户可没有耐心忍受每次多弹出这个对话框询问组件是否安全。我开始打算将组件实现安全接口解决掉此问题，不过不知道缘何，没有成功，网上搜索一下好像说在ie7里面无效，没办法还是看mfc源码来解决问题。<br />CDHtmlDialog类获取external代码如下：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">STDMETHODIMP&nbsp;CDHtmlDialog::GetExternal(IDispatch&nbsp;</span><span style="line-height: 19px; color: #000000;">**</span><span style="line-height: 19px; color: #000000;">ppDispatch)<br /><img id="Codehighlighter1_63_289_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" /></span><span id="Codehighlighter1_63_289_Open_Text" style="line-height: 19px;"><span style="line-height: 19px; color: #000000;">{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #0000ff;">if</span><span style="line-height: 19px; color: #000000;">(ppDispatch&nbsp;</span><span style="line-height: 19px; color: #000000;">==</span><span style="line-height: 19px; color: #000000;">&nbsp;NULL)<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #0000ff;">return</span><span style="line-height: 19px; color: #000000;">&nbsp;E_POINTER;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #000000;">*</span><span style="line-height: 19px; color: #000000;">ppDispatch&nbsp;</span><span style="line-height: 19px; color: #000000;">=</span><span style="line-height: 19px; color: #000000;">&nbsp;NULL;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #0000ff;">if</span><span style="line-height: 19px; color: #000000;">&nbsp;(m_spExternalDisp.p&nbsp;</span><span style="line-height: 19px; color: #000000;">&amp;&amp;</span><span style="line-height: 19px; color: #000000;">&nbsp;CanAccessExternal())<br /><img id="Codehighlighter1_182_268_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="Codehighlighter1_182_268_Open_Text" style="line-height: 19px;"><span style="line-height: 19px; color: #000000;">{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_spExternalDisp.p</span><span style="line-height: 19px; color: #000000;">-&gt;</span><span style="line-height: 19px; color: #000000;">AddRef();<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #000000;">*</span><span style="line-height: 19px; color: #000000;">ppDispatch&nbsp;</span><span style="line-height: 19px; color: #000000;">=</span><span style="line-height: 19px; color: #000000;">&nbsp;m_spExternalDisp.p;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #0000ff;">return</span><span style="line-height: 19px; color: #000000;">&nbsp;S_OK;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;}</span></span><span style="line-height: 19px; color: #000000;"><br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #0000ff;">return</span><span style="line-height: 19px; color: #000000;">&nbsp;E_NOTIMPL;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />}</span></span></div>
+看到CanAccessExternal函数，肯定就是验证安全性的代码，找到函数声明，幸好是虚函数，重载直接返回TRUE：<br />
+<div style="padding-right: 5px; padding-left: 4px; font-size: 13px; padding-bottom: 4px; width: 971px; word-break: break-all; padding-top: 4px; background-color: #eeeeee; border: 1px solid #cccccc;"><img src="http://www.cppblog.com/Images/OutliningIndicators/None.gif" alt="" align="top" /><span style="line-height: 19px; color: #000000;">BOOL&nbsp;CHTMLContainerDlg::CanAccessExternal()<br /><img id="Codehighlighter1_44_115_Open_Image" src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockStart.gif" alt="" align="top" /></span><span id="Codehighlighter1_44_115_Open_Text" style="line-height: 19px;"><span style="line-height: 19px; color: #000000;">{<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #008000;">//</span><span style="line-height: 19px; color: #008000;">&nbsp;we&nbsp;trust&nbsp;all&nbsp;com&nbsp;object&nbsp;(haha,&nbsp;you&nbsp;can&nbsp;make&nbsp;virus)</span><span style="line-height: 19px; color: #008000;"><br /><img src="http://www.cppblog.com/Images/OutliningIndicators/InBlock.gif" alt="" align="top" /></span><span style="line-height: 19px; color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="line-height: 19px; color: #0000ff;">return</span><span style="line-height: 19px; color: #000000;">&nbsp;TRUE;<br /><img src="http://www.cppblog.com/Images/OutliningIndicators/ExpandedBlockEnd.gif" alt="" align="top" />}</span></span></div>
+</span></p>
+<p>有兴趣的朋友可以看下内部实现。<br />这下就好了，按下网页选择文件夹按钮，弹出对话框：<br /><img src="http://www.cppblog.com/images/cppblog_com/wlwlxj/730/o_dhtmldlg3.JPG" alt="" /><br />一套流程完备，方案个人觉得不错，各司其职，通信自然畅通，一个html配对一个com功能组件，功能组件化不仅使代码封装性好，而且可以用于多种语言。<br /><br />由于此技术不用于公司开发，今整理提供<a style="color: #6fbc4c;" href="http://www.cppblog.com/files/wlwlxj/WebGUI.rar">下载</a></p>
+<p>
+<hr />
+<span style="color: #7e412c; font-family: Arial; line-height: 18px;">
+<div class="tit" style="font-family: Arial; word-wrap: break-word; word-break: break-all; visibility: visible !important; zoom: 1 !important; filter: none; font-size: 12px; line-height: 20px !important; font-weight: bold; color: #827823; text-indent: 50px; background-image: url(http://imgsrc.baidu.com/css/pic/item/f11fcaf7c8e7ed0e730eec7b.jpg); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; height: 50px; padding-top: 15px; overflow-x: hidden; overflow-y: hidden; background-position: 0% 50%; background-repeat: no-repeat no-repeat;">HTML对话框的实现[转载]</div>
+</span></p>
+<table style="line-height: 20px !important; table-layout: fixed; width: 840px;">
+<tbody style="line-height: 20px !important;">
+<tr style="line-height: 20px !important;">
+<td style="font-family: Arial; word-wrap: break-word; word-break: break-all; visibility: visible !important; zoom: 1 !important; filter: none; font-size: 12px; line-height: 20px !important;">
+<div id="blog_text" class="cnt" style="font-family: Georgia; word-wrap: break-word; word-break: normal; visibility: visible !important; zoom: 1 !important; filter: none; font-size: 12px; line-height: 20px; color: #7e412c; letter-spacing: 2px; overflow-x: hidden; overflow-y: hidden; position: static;"><span class="content" style="line-height: normal;">开发环境：VS7，Windows XP，Windows 2K&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />在VS7中添加了一种新的对话框类：CDHtmlDialog，顾名思义就是能够显示DHTML内容的对话框，但不同与以前的CHTMLView不同的是添加了对DHTML的支持，能够响应各种DHTML的事件，而且能够方便的得到网页上的各种内容和输入。在这以前要完成这些功能必须通过复杂的COM接口来完成，而现在MS MFC已经为我们做好了这一切。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />在下面我会按照下面的顺序讲解CDHtmlDialog的用法。但本文也只能对DHTML对话框的功能进行部分的讲解，更多更全的说明需要大家自己摸索和查找资料。本文的目的是在于讲解如何得到和设置网页上的各种元素的值，如何处理事件。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />此外在阅读本文前你必须对HTML和DHTML有所了解。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />CDHtmlDialog类的成员函数&nbsp;<br style="line-height: normal;" />CDHtmlDialog事件处理映射宏&nbsp;<br style="line-height: normal;" />CDHtmlDialog类的各种DDX帮助宏&nbsp;<br style="line-height: normal;" />一个简单的例子&nbsp;<br style="line-height: normal;" />类成员函数介绍&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />构造函数<br style="line-height: normal;" /><br style="line-height: normal;" />CDHtmlDialog( );<br style="line-height: normal;" />CDHtmlDialog(<br style="line-height: normal;" />LPCTSTR lpszTemplateName,<br style="line-height: normal;" />LPCTSTR szHtmlResID,<br style="line-height: normal;" />CWnd *pParentWnd = NULL&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" />CDHtmlDialog(<br style="line-height: normal;" />UINT nIDTemplate,<br style="line-height: normal;" />UINT nHtmlResID = 0,<br style="line-height: normal;" />CWnd *pParentWnd = NULL&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" /><br style="line-height: normal;" />你可以看到和CDialog不同的就在于第二个参数，表示在对话框创建时是否自动加载HTML，这里必须说明的是HTML必须以资源的形式存放，这个参数指明的是资源的ID或名称。&nbsp;<br style="line-height: normal;" /><a style="font-size: 12px; color: #7e412c; text-decoration: none; line-height: 20px; font-family: Georgia;" href="http://www.zhangsichu.com/attachments/month_200502/08_004134_oldrhtml_rs.gif" target="_blank"><img style="line-height: normal;" src="http://www.zhangsichu.com/attachments/month_200502/08_004134_oldrhtml_rs.gif" border="0" alt="Click to Open in New Window" /></a><br style="line-height: normal;" />或者你可以利用&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />BOOL LoadFromResource(<br style="line-height: normal;" />LPCTSTR lpszResource&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" />BOOL LoadFromResource(<br style="line-height: normal;" />UINT nRes&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" /><br style="line-height: normal;" />将HTML内容在后期进行装载。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />页面浏览&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />此外一些函数如：OnNavigateComplete，OnBeforeNavigate，Navigate等用于页面转换的函数，在以前的CHtmlView中就有这里就不再作讲解。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />得到当前URL&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />void GetCurrentUrl(<br style="line-height: normal;" />CString&amp; szUrl&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" /><br style="line-height: normal;" />得到网页中的DHTML元素的指定接口&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT GetElementInterface(<br style="line-height: normal;" />LPCTSTR szElementId,<br style="line-height: normal;" />REFIID riid,<br style="line-height: normal;" />void** ppvObj&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" /><br style="line-height: normal;" />第一个参数指定，第二个参数指定接口ID，第三个参数返回接口指针。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />得到网页中的DHTML元素的IHTMLElement接口&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT GetElement(<br style="line-height: normal;" />LPCTSTR szElementId,<br style="line-height: normal;" />IHTMLElement **pphtmlElement&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" />相当于调用 GetElementInterface(szElementId,IHTMLElement,pphtmlElement);<br style="line-height: normal;" /><br style="line-height: normal;" />这个函数非常的重要，因为如果要得到DHTML的内容就必须通过页面上的各个元素的属性来得到，例如：对于Input type=text的属性value就是输入的值，对于p的属性innerText就是段落中的内容。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />函数的第二个参数就是元素的名称。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />函数的第二个参数，是一个指向指针的指针，通过它得到IHTMLElement的接口。函数返回值是HRESULT其值的定义符合COM中对返回值的定义。（如果你不了解，可以简单的检测返回值是否等于S_OK）&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />得到元素的innerText和innerHTML的属性&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />innerHTML属性：<br style="line-height: normal;" />BSTR GetElementHtml(<br style="line-height: normal;" />LPCTSTR szElementId&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" />innerText属性：<br style="line-height: normal;" />BSTR GetElementText(<br style="line-height: normal;" />LPCTSTR szElementId&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" />相当于调用IHTMLElement接口的gett_innerHTML和get_innerText方法<br style="line-height: normal;" />与之对应的是设置元素的innerText和InnerHTML属性：&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />innerHTML属性：<br style="line-height: normal;" />void SetElementHtml(<br style="line-height: normal;" />LPCTSTR szElementId,<br style="line-height: normal;" />BSTR bstrText&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" />innerText属性：<br style="line-height: normal;" />void SetElementText(<br style="line-height: normal;" />LPCTSTR szElementId,<br style="line-height: normal;" />BSTR bstrText&nbsp;<br style="line-height: normal;" />);<br style="line-height: normal;" />相当于调用IHTMLElement接口的put_innerHTML和put_innerText方法<br style="line-height: normal;" />示范代码&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />假设页面上的代码为：&lt;p id=p2&gt;test&lt;/p&gt;，执行下面代码可以显示原来的内容和将新内容设置为：abcdefg&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />&nbsp;&nbsp; CComPtr&lt;IHTMLElement&gt; spP1;<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT hr = S_OK;<br style="line-height: normal;" /><br style="line-height: normal;" />&nbsp;&nbsp; // Use the template overload<br style="line-height: normal;" />&nbsp;&nbsp; hr = GetElementInterface("p2", &amp;spP1);<br style="line-height: normal;" />// 或者 hr = GetElement("p2", &amp;spP1);<br style="line-height: normal;" />// 或者 hr = GetElementInterface("p2", IID_IHTMLElement, reinterpret_cast&lt;void**&gt;(&amp;spP1));<br style="line-height: normal;" />if(S_OK == hr)<br style="line-height: normal;" />&nbsp;&nbsp; {<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; BSTR bStr;<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; spP1-&gt;get_innerHTML(&amp;bStr);<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; CString szTemp;<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; szTemp = bStr;<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; AfxMessageBox(szTemp);<br style="line-height: normal;" /><br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; CString strTable="abcdefg";<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; BSTR bstrTable = strTable.AllocSysString();<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; spP1-&gt;put_innerHTML(bstrTable);<br style="line-height: normal;" />&nbsp;&nbsp; }<br style="line-height: normal;" />或者利用SetElementHtml和SetElementText来进行设置：<br style="line-height: normal;" />&nbsp;&nbsp; BSTR bStr;&nbsp;&nbsp; bStr = GetElementHtml("p2");&nbsp;&nbsp; CString szTemp;&nbsp;&nbsp; szTemp = bStr;&nbsp;&nbsp; AfxMessageBox(szTemp);&nbsp;&nbsp; CString strTable="ABCDEFG";&nbsp;&nbsp; BSTR bstrTable = strTable.AllocSysString();&nbsp;&nbsp; //spP1-&gt;put_innerHTML(bstrTable);&nbsp;&nbsp; SetElementHtml("p2",bstrTable);<br style="line-height: normal;" /><br style="line-height: normal;" />事件处理映射宏&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />基本格式<br style="line-height: normal;" /><br style="line-height: normal;" />BEGIN_DHTML_EVENT_MAP(className )<br style="line-height: normal;" />DHTML_EVENT_ONCLICK(elemName, memberFxn ) //处理onclick事件<br style="line-height: normal;" />DHTML_EVENT_ONFOCUS(elemName, memberFxn ) //处理onfocus事件<br style="line-height: normal;" />DHTML_EVENT_ONKEYDOWN(elemName, memberFxn ) //处理onkeydown事件<br style="line-height: normal;" />DHTML_EVENT_ONMOUSEMOVE(elemName, memberFxn ) //处理mousemove事件<br style="line-height: normal;" />DHTML_EVENT_ONMOUSEOUT(elemName, memberFxn ) //处理mousemoveout事件<br style="line-height: normal;" />等等&hellip;&hellip;&hellip;<br style="line-height: normal;" />END_DHTML_EVENT_MAP()<br style="line-height: normal;" /><br style="line-height: normal;" />更详细的说明可以查阅MSDN中DHTML Event Map Macros部分。MSDN中对可以处理的事件进行了详细的说明。DHTML中的事件与Windows中消息不是同一个概念，虽然映射宏的形式很相同。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />添加映射处理代码&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />我在VC7中没有发现自动添加各种事件映射的方法，只能通过手工添加代码的方式。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />定义事件处理函数：<br style="line-height: normal;" />&nbsp;&nbsp; 函数原型为：HRESULT urClass::OnXXXXX(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />添加消息映射：<br style="line-height: normal;" />&nbsp;&nbsp; BEGIN_DHTML_EVENT_MAP(urClass)<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; DHTML_EVENT_ONCLICK(_T("id name"), OnXXXXX)<br style="line-height: normal;" />&nbsp;&nbsp; END_DHTML_EVENT_MAP()<br style="line-height: normal;" />&nbsp;&nbsp;<br style="line-height: normal;" />下面是一段示范代码：<br style="line-height: normal;" />// mydlg.h<br style="line-height: normal;" />class CmydhtmlDlg : public CDHtmlDialog<br style="line-height: normal;" />{<br style="line-height: normal;" />// 构造<br style="line-height: normal;" />public:<br style="line-height: normal;" />&nbsp;&nbsp; CmydhtmlDlg(CWnd* pParent = NULL);&nbsp;&nbsp; // 标准构造函数<br style="line-height: normal;" /><br style="line-height: normal;" />// 对话框数据<br style="line-height: normal;" />&nbsp;&nbsp; enum { IDD = IDD_MYDHTML_DIALOG, IDH = IDR_HTML_MYDHTML_DIALOG };<br style="line-height: normal;" /><br style="line-height: normal;" />&nbsp;&nbsp; protected:<br style="line-height: normal;" />&nbsp;&nbsp; virtual void DoDataExchange(CDataExchange* pDX);&nbsp;&nbsp; // DDX/DDV 支持<br style="line-height: normal;" /><br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnButtonOK(IHTMLElement *pElement);<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnButtonCancel(IHTMLElement *pElement);<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnButtonTest1(IHTMLElement *pElement);<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnButtonTest2(IHTMLElement *pElement);<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnButtonTest3(IHTMLElement *pElement);<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnSelectTest1(IHTMLElement *pElement);<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnDivMouseMove1(IHTMLElement *pElement);<br style="line-height: normal;" />&nbsp;&nbsp; HRESULT OnDivMouseOut1(IHTMLElement *pElement);<br style="line-height: normal;" /><br style="line-height: normal;" />//mydlg.cpp<br style="line-height: normal;" />BEGIN_DHTML_EVENT_MAP(CmydhtmlDlg)<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONCLICK(_T("ButtonOK"), OnButtonOK)<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONCLICK(_T("ButtonCancel"), OnButtonCancel)<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONCLICK(_T("Test1"), OnButtonTest1)<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONCLICK(_T("Test2"), OnButtonTest2)<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONCLICK(_T("Test3"), OnButtonTest3)<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONCHANGE(_T("s1"), OnSelectTest1)<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONMOUSEMOVE(_T("d1"), OnDivMouseMove1 )<br style="line-height: normal;" />&nbsp;&nbsp; DHTML_EVENT_ONMOUSEOUT(_T("d1"), OnDivMouseOut1 )<br style="line-height: normal;" />END_DHTML_EVENT_MAP()<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT CmydhtmlDlg::OnButtonOK(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; OnOK();<br style="line-height: normal;" />&nbsp;&nbsp; return S_OK;<br style="line-height: normal;" />}<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT CmydhtmlDlg::OnButtonCancel(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; OnCancel();<br style="line-height: normal;" />&nbsp;&nbsp; return S_OK;<br style="line-height: normal;" />}<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT CmydhtmlDlg::OnButtonTest1(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; AfxMessageBox("test1 button clicked");<br style="line-height: normal;" />&nbsp;&nbsp; return S_OK;<br style="line-height: normal;" />}<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT CmydhtmlDlg::OnSelectTest1(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; TRACE("select1 changed\n");<br style="line-height: normal;" />&nbsp;&nbsp; return S_OK;<br style="line-height: normal;" />}<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT CmydhtmlDlg::OnDivMouseMove1(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; TRACE("div1 mouse move\n");<br style="line-height: normal;" />&nbsp;&nbsp; return S_OK;<br style="line-height: normal;" />}<br style="line-height: normal;" /><br style="line-height: normal;" />HRESULT CmydhtmlDlg::OnDivMouseOut1(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; TRACE("div1 mouse out\n");<br style="line-height: normal;" />&nbsp;&nbsp; return S_OK;<br style="line-height: normal;" />}<br style="line-height: normal;" /><br style="line-height: normal;" />各种DDX帮助宏&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />DDX宏介绍&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />如同CDialog类一样，CHtmlDialog也提供各种DDX帮助宏来与HTML页面上的控件交换数据。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />遗憾的是VS7中无法为CDHTMLDialog 的子类自动添加DDX变量，必须通过手工添加。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />设置innerText和innerHTML属性&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />DDX_DHtml_ElementInnerText(<br style="line-height: normal;" />CDataExchange* dx,<br style="line-height: normal;" />LPCTSTR name,<br style="line-height: normal;" />CString&amp; var&nbsp;<br style="line-height: normal;" />)<br style="line-height: normal;" />和<br style="line-height: normal;" />DDX_DHtml_ElementInnerHtml(<br style="line-height: normal;" />CDataExchange* dx,<br style="line-height: normal;" />LPCTSTR name,<br style="line-height: normal;" />CString&amp; var&nbsp;<br style="line-height: normal;" />)<br style="line-height: normal;" />相当与前面提到的设置和获取innerText，innerHTML属性。<br style="line-height: normal;" /><br style="line-height: normal;" />获取和设置控件中的值&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />在DHTML中利用"对象名程.value"可以得到控件中输入的值，利用DDX也同样可以得到。&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />DDX_DHtml_ElementValue(<br style="line-height: normal;" />CDataExchange* dx,<br style="line-height: normal;" />LPCTSTR name,<br style="line-height: normal;" />var&nbsp;<br style="line-height: normal;" />)<br style="line-height: normal;" />用于在控件和对象之间交换数据。<br style="line-height: normal;" /><br style="line-height: normal;" />使用方法&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />假设HTML文件中代码如下&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />&lt;p id="p4"&gt;&lt;b&gt;p4 for ddx&lt;/b&gt;&lt;/p&gt;<br style="line-height: normal;" />&lt;input type="text" ID="input1" size="20" value="input1 for ddx" NAME="input1"&gt;<br style="line-height: normal;" />&lt;input type="text" ID="input2" size="20" value="101" NAME="input2"&gt;<br style="line-height: normal;" /><br style="line-height: normal;" />在H文件中添加变量定义：<br style="line-height: normal;" />public: //DDX<br style="line-height: normal;" />&nbsp;&nbsp; CString m_szP4,m_szInput1;<br style="line-height: normal;" />&nbsp;&nbsp; int m_iInput2;<br style="line-height: normal;" /><br style="line-height: normal;" />在类的构造函数中赋初值：<br style="line-height: normal;" />CmydhtmlDlg::CmydhtmlDlg(CWnd* pParent /*=NULL*/)<br style="line-height: normal;" />&nbsp;&nbsp; : CDHtmlDialog(CmydhtmlDlg::IDD, CmydhtmlDlg::IDH, pParent)<br style="line-height: normal;" />&nbsp;&nbsp; {<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; m_szP4 = "test for p4";<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; m_szInput1= "test for input1";<br style="line-height: normal;" />&nbsp;&nbsp;&nbsp;&nbsp; m_iInput2 = 101;<br style="line-height: normal;" />&nbsp;&nbsp; }<br style="line-height: normal;" /><br style="line-height: normal;" />在CPP文件中的void CmydhtmlDlg::DoDataExchange(CDataExchange* pDX)函数中添加代码：<br style="line-height: normal;" />void CmydhtmlDlg::DoDataExchange(CDataExchange* pDX)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; CDHtmlDialog::DoDataExchange(pDX);<br style="line-height: normal;" />&nbsp;&nbsp; //// for html ddx<br style="line-height: normal;" />&nbsp;&nbsp; DDX_DHtml_ElementInnerHtml(pDX,"p4",m_szP4); //对应 p4<br style="line-height: normal;" />&nbsp;&nbsp; DDX_DHtml_ElementValue(pDX,"input1",m_szInput1); //对应 input1<br style="line-height: normal;" />&nbsp;&nbsp; DDX_DHtml_ElementValue(pDX,"input2",m_iInput2); //对应 input2<br style="line-height: normal;" />}<br style="line-height: normal;" />使用是与CDialog一样利用UpdateData。<br style="line-height: normal;" />HRESULT CmydhtmlDlg::OnButtonTest4(IHTMLElement* /*pElement*/)<br style="line-height: normal;" />{<br style="line-height: normal;" />&nbsp;&nbsp; UpdateData();<br style="line-height: normal;" />&nbsp;&nbsp; TRACE("p4=%s\n",m_szP4);<br style="line-height: normal;" />&nbsp;&nbsp; CString szTemp=m_szP4;<br style="line-height: normal;" />&nbsp;&nbsp; m_szP4 =m_szInput1;<br style="line-height: normal;" />&nbsp;&nbsp; m_szInput1=szTemp; //对换p4和input1中内容<br style="line-height: normal;" />&nbsp;&nbsp; m_iInput2 ++; //将input2中数字加一<br style="line-height: normal;" />&nbsp;&nbsp; UpdateData(FALSE);<br style="line-height: normal;" />&nbsp;&nbsp; return S_OK;<br style="line-height: normal;" />}<br style="line-height: normal;" /><br style="line-height: normal;" /><br style="line-height: normal;" />一个简单的例子&nbsp;<br style="line-height: normal;" /><br style="line-height: normal;" />最后介绍一下如何利用VC7创建一个利用CDHtmlDialog的工程。<br style="line-height: normal;" /><br style="line-height: normal;" />首先创建工程，进行如下设置：<br style="line-height: normal;" /><a style="font-size: 12px; color: #7e412c; text-decoration: none; line-height: 20px; font-family: Georgia;" href="http://www.zhangsichu.com/attachments/month_200502/08_004246_he7kcreate_prj.gif" target="_blank"><img style="line-height: normal;" src="http://www.zhangsichu.com/attachments/month_200502/08_004246_he7kcreate_prj.gif" border="0" alt="Click to Open in New Window" /></a><br style="line-height: normal;" />在资源管理中修改HTML文件：<br style="line-height: normal;" /><a style="font-size: 12px; color: #7e412c; text-decoration: none; line-height: 20px; font-family: Georgia;" href="http://www.zhangsichu.com/attachments/month_200502/08_004322_kh0oedit_html.gif" target="_blank"><img style="line-height: normal;" src="http://www.zhangsichu.com/attachments/month_200502/08_004322_kh0oedit_html.gif" border="0" alt="Click to Open in New Window" /></a><br style="line-height: normal;" />最后添加自己的代码。我提供的例子中所使用的函数在上面都已经提到。</span></div>
+</td>
+</tr>
+</tbody>
+</table><br />
+				
+							<div style="margin-right: 6px;">
+								<div style="float:left;margin-right: 9px;"><span style='font-weight:bold;'>频道</span>: <a
+									href="http://www.congci.com/category/it"
+									target="_blank">电脑科技</a> <span style='font-weight:bold;'>标签</span>: <a href='http://www.congci.com/tag/mfc'>MFC</a>  <a href='http://www.congci.com/tag/webgui'>WebGUI</a>  <a href='http://www.congci.com/tag/cdhtmldialog'>CDHtmlDialog</a>  <a href='http://www.congci.com/tag/html'>html</a> </div> <script type="text/javascript"><!--
+google_ad_client = "ca-pub-6003849688262556";
+/* 468 x 15 */
+google_ad_slot = "1831813900";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+					</div>
+						<br />
+		
+
+				<div id="msg">
+			
+
+
+<div id="msgarea">
+<script type="text/javascript">
+function loadmsg()
+{
+	$('#msgarea').load('http://www.congci.com/msg.jsp?type=0&width=700&itemid=1989');
+}
+	document.getElementById('menuid').style.color="#444";
+	document.getElementById('menuidtech').style.color="#FF0084";
+</script>
+</div>
+					<div style="clear: both;"></div>
+
+
+				</div>
+
+
+					</div>
+					
+	<script type="text/javascript">
+		var contentHeight=document.getElementById("content").offsetHeight;
+		window.onscroll=function(){
+			scrollEvent(true);
+		};
+		
+		function scrollEvent()
+		{
+			var addPx=parseInt(document.documentElement.scrollTop + document.body.scrollTop);
+			document.getElementById("leftlayer").style.marginTop=addPx+"px";
+		}
+	</script>
+
+				</div>
+				
+			</div>
+			<div
+				style="float: left; width: 250px; margin-left: 4px; text-align: center; *margin-left: 0px;">
+
+					
+				<div class="border r-box"  style="margin-left: 0px; margin-bottom: 3px; width: 100%; text-align: center; text-decoration: none;line-height:28px; background-repeat:repeat-x; background-image: url('../image/tiao.gif'); color: #046;">
+			<div style="text-align: center;text-align: center;margin:10px 0px 9px 33px;"><a class="button"  href="http://www.congci.com/additem"><span
+			style="color: black; font-weight: bold;">发布课程</span></a><a class="button" 
+			href="http://www.congci.com/additem?itemtype=4"><span
+			style="color: black; font-weight: bold;">发布培训</span></a>
+			<div style="clear: both;"></div>
+			</div>
+						<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6003849688262556";
+/* 234x60, 创建于 10-7-30 */
+google_ad_slot = "1939802922";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<div style="clear: both;"></div>
+				</div>
+
+				
+
+				<div style="width: 250px; float: left;">
+
+					<div class="border r-box"
+	style="float: left; text-align: center; margin-bottom: 2px; margin-left: 0px; width: 100%;">
+	<div
+		style="margin-left: 0px; padding-top: 2px; width: 100%; text-align: left; text-decoration: none; line-height: 25px; background-image: url('../image/tiao.gif'); color: #046;">
+		<a
+			href="http://www.congci.com/list"><span
+			style="float: right; margin-right: 1px;">&gt;&gt;&nbsp;</span>&nbsp;<b
+			style="color: black; font-weight: bold;">相关课程</b></a>
+	</div>
+
+	<div style="padding-left: 0px; text-align: center;">
+		<div
+			style="text-align: left; margin-top: 0px; margin-left: 0px; margin-bottom: 2px;">
+
+			<div class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:#8470FF;color:white;font-weight:bold;'>1</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html5-ai-basic-dev' title='HTML5 人工智能基础'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>HTML5 人工智能基础</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>2</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html-5-web-sql-database' title='HTML5 Web Sql Database(附源码)'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>HTML5 Web Sql Database(附源码)</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>3</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html-5-gis-cloud' title='HTML5的GIS Cloud革命'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>HTML5的GIS Cloud革命</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>4</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html-application-cache' title='HTML5 Application Cache 指南'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>HTML5 Application Cache 指南</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>5</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/ie-z-index-html-css' title='IE z-index种种问题'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>IE z-index种种问题</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>6</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html5-canvas-draw-dev-info' title='HTML5 Canvas 绘图'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>HTML5 Canvas 绘图</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>7</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html5-web-storage' title='HTML5 Web Storage'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>HTML5 Web Storage</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>8</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/mfc-message-zidingyi' title='MFC自定义消息'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>MFC自定义消息</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>9</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html5-and-html4' title='Html5和Html4地位'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>Html5和Html4地位</b></a></div></div><div  class='asidetopitem' style='text-align:left;clear:both;padding-left:5px;'><div style='margin:0px 2px;border:solid 1px silver;width:14px;float:left;text-align:center;margin:1px;background-color:silver;color:white;font-weight:bold;'>10</div><div class='overflowstyle'><a target='_blank'  href='http://www.congci.com/item/html-teshuzifu-daquan' title='HTML特殊字符大全'  ><b style='line-height:22px;font-weight:normal;color:#4C4C4C'>HTML特殊字符大全</b></a></div></div><div style="clear: both;"></div>
+
+
+		</div>
+
+	</div>
+</div>
+<div style="clear: both;"></div>
+<script type="text/javascript">
+var youdao_client="1199";
+var youdao_member="112757";
+var youdao_template="text_200_200";
+ var youdao_width="200"; var youdao_height="200"; var youdao_uc="#008000"; var youdao_tc="#0000cc"; var youdao_dc="#444444"; var youdao_bgc="#ffffff";</script>
+<script type="text/javascript" src="http://impservice.union.youdao.com/imp/union_req_ads.js"></script>
+					<div id="asidearea">
+<script type="text/javascript">
+function loadaside() {
+	$('#asidearea').load('http://www.congci.com/aside.jsp');
+}
+</script>
+</div>
+		<script type="text/javascript">/*250*250*/ var cpro_id = 'u748316';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>
+		</div>
+
+
+
+				<div style="clear: both;"></div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+
+
+	
+	</article>
+	<footer>
+	<script type="text/javascript">
+			document.body.oncopy = function() {
+				setTimeout(function() {
+					var text = clipboardData.getData("text");
+					if (text) {
+						if(text.length>2000){
+						text = text + "\n 从此学习网 " + location.href + " \n\r";
+						}
+						clipboardData.setData("text", text);
+					}
+				}, 100);
+			};
+	</script>
+		
+<script type="text/javascript">
+$(function() {
+	setTimeout(load,5000);
+});
+
+function load()
+{
+	loadmsg();
+	loadaside();
+}
+</script>
+		<div style="clear:both;" ></div>
+<div
+	style="text-align: center; clear: both; width: 98%; color: silver;border:1px solid silver;margin-top:2px;padding:6px;background-image: url('http://res.congci.com/image/headbg.gif');">&copy; 2008-2012
+- <a href="http://www.congci.com"
+	target="_blank" style="color: silver;">从此网</a> 
+- <a
+	href="http://wangxiaodong.com" target="_blank" style="color: silver;">王晓东</a>
+- <a href="http://www.iqadd.com"
+	target="_blank" style="color: silver;">IQAdd</a>
+	- <a href="http://zh.iqadd.com"
+	target="_blank" style="color: silver;">智升網</a>
+	- <a href="http://www.bygem.com"
+	target="_blank" style="color: silver;">智宝网</a>
+
+</div>
+
+<br />
+<br />
+
+<div style="display: none;">
+<div id="notepaddialog"  style="display: none;"></div>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4f4e14a0e55eb2158b27d30e23d494e4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+</div></footer>
+	
+
+		
+	
+</body>
+</html>

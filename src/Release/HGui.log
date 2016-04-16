@@ -1,0 +1,55 @@
+﻿生成启动时间为 2015-6-12 15:47:19。
+项目“Y:\HGui\HGui_2010\HGui\HGui.vcxproj”在节点 2 上(build 个目标)。
+InitializeBuildStatus:
+  正在创建“Release\HGui.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\HGui.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+  stdafx.cpp
+  d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\HGui.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AutoControl.cpp HGui.cpp HGuiDlg.cpp JsDlg.cpp json\json_reader.cpp json\json_value.cpp json\json_writer.cpp
+  AutoControl.cpp
+AutoControl.cpp(180): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(110) : 参见“strcat”的声明
+AutoControl.cpp(182): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(110) : 参见“strcat”的声明
+AutoControl.cpp(183): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(110) : 参见“strcat”的声明
+AutoControl.cpp(186): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : 参见“fopen”的声明
+  HGui.cpp
+  HGuiDlg.cpp
+HGuiDlg.cpp(89): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(110) : 参见“strcat”的声明
+HGuiDlg.cpp(707): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : 参见“fopen”的声明
+  JsDlg.cpp
+JsDlg.cpp(112): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          d:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : 参见“fopen”的声明
+  json_reader.cpp
+  json_value.cpp
+  json_writer.cpp
+ResourceCompile:
+  C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IRelease\ /nologo /fo"Release\HGui.res" HGui.rc 
+Link:
+  d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Y:\HGui\HGui_2010\Release\HGui.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\HGui.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"Y:\HGui\HGui_2010\Release\HGui.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"Y:\HGui\HGui_2010\Release\HGui.lib" /MACHINE:X86 Release\HGui.res
+  Release\AutoControl.obj
+  Release\HGui.obj
+  Release\HGuiDlg.obj
+  Release\JsDlg.obj
+  Release\json_reader.obj
+  Release\json_value.obj
+  Release\json_writer.obj
+  Release\stdafx.obj
+  正在生成代码
+y:\hgui\hgui_2010\hgui\jsdlg.cpp(124): warning C4715: “GetFileText”: 不是所有的控件路径都返回值
+  已完成代码的生成
+  HGui.vcxproj -> Y:\HGui\HGui_2010\Release\HGui.exe
+Manifest:
+  C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Y:\HGui\HGui_2010\Release\HGui.exe;#1" /manifest Release\HGui.exe.intermediate.manifest "d:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+FinalizeBuildStatus:
+  正在删除文件“Release\HGui.unsuccessfulbuild”。
+  正在对“Release\HGui.lastbuildstate”执行 Touch 任务。
+已完成生成项目“Y:\HGui\HGui_2010\HGui\HGui.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:40.32

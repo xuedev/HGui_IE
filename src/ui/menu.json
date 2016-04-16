@@ -1,0 +1,36 @@
+[
+	{"id":1,"text":"ARM终端概览","attributes":{"url":"armgl.html"}},
+
+	{	"id":11,
+		"text":"终端监控管理",
+		"children":[
+
+				{
+					"id":111,
+					"text":"系统级监控",
+					"attributes":{"url":"sys_rate_set.html"}
+				},
+				{
+					"id":112,
+					"text":"终端部品监控",
+					"attributes":{"url":"zdbpjk.html"}
+				},
+				{
+					"id":113,
+					"text":"应用类监控",
+					"attributes":{"url":"1.html"}
+				}
+			]
+
+		},
+
+	{	"id":12,
+		"text":"终端管理",
+		"children":[
+			{"id":121,"text":"终端重启","attributes":{"url":"arm_reboot.html"}},
+			{"id":122,"text":"手动升级","attributes":{"url":"update.html"}},
+			{"id":123,"text":"票证管理","attributes":{"url":"pzgl.html"}}
+		]
+	},
+	{"id":2,"text":"退出程序","attributes":{"url":"exit.html"}}
+]

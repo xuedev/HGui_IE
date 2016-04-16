@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+	<link rel="stylesheet" type="text/css" href="css/btn.css">
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	<script src="js/highcharts.js"></script>
+	<script src="js/modules/exporting.js"></script>
+	<script type="text/javascript" src="js/comm.js"></script>
+	<script type="text/javascript" src="js/commCom.js"></script>
+	<script src="js/json2.js"></script>
+	<style>
+		
+		body,div,p,ul,li,font,span,td,th,h1,h2,h3,h4,h5,h6{
+		font-family: 微软雅黑,仿宋,Verdana,Tahoma,Arial,Geogia,宋体,Sans-serif;
+		font-size:10pt;
+		line-height:175%;
+		}
+		
+		.tree-title{
+			font-size:10pt;
+			line-height:200%;
+		}
+		.icon-set{ 
+			background:url('themes/icons/set.png') no-repeat; 
+			}
+	</style>
+
+	<script type="text/javascript">
+		
+		var tab;
+		//页面初始化时执行
+		$(function(){
+			//初始化界面
+			initUI();
+			
+			//初始化软件配置
+			initCfg();
+			
+			//初始化动态查询任务
+			initTask();
+			
+		});
+
+
+		function initTask(){
+
+		
+		}
+		function initCfg(){
+			
+		}
+
+		function addMenu(parent_id,menu_name,menu_url,menu_id){
+			var parent_menu = document.getElementById(parent_id);
+			var html = parent_menu.innerHTML;
+			parent_menu.innerHTML = html+'<button id="'+menu_url.split(".")[0]+'."  onclick="top.action(this);" width="100px" >'+menu_name+'</button>';
+		}
+
+		function addMainMenu(menu_id,menu_name){
+			var parent_menu = document.getElementById("menus");
+			var html = parent_menu.innerHTML;
+			parent_menu.innerHTML = html+'<div id="'+menu_id+'" title="'+menu_name+'"   style="padding:10px;"></div>';
+		}
+		function initMenus(){
+			queryData("menus","select * from menus order by position,id","handleQueryMenu");
+		}
+		function initButton(){
+			
+			$("#close").hover(function() {
+				$(this).attr("src","img/close_hover.png");
+			}, function() {
+				$(this).attr("src","img/close_release.png");
+			});
+
+			$("#max").hover(function() {
+				$(this).attr("src","img/max_hover.png");
+			}, function() {
+				$(this).attr("src","img/max_release.png");
+			});
+
+			$("#min").hover(function() {
+				$(this).attr("src","img/min_hover.png");
+			}, function() {
+				$(this).attr("src","img/min_release.png");
+			});
+
+		}
+		function initUI(){
+			initMenus();
+			initButton();
+
+			//external.ChangeMaxMin("max");
+			$('#tt').tabs({ 
+					fit: true,
+					onSelect:function(title,a){ 
+						//alert(title+' is selected'); 
+						//OnTabSelect(title);
+						//alert(this.html());
+						//alert(this.tabs);
+					} 
+						
+			});
+			openTab("欢迎界面","welcome.html");
+			setInterval(showTime,1000);
+			tab = $('#tt');
+		}
+
+		function action(e){
+			var id = e.id.split(".")[0];
+			if(id == "update"){
+				openTab(e.innerHTML,updateUrl);
+			}else if(id == "pzgl"){
+				openTab(e.innerHTML,pzglUrl);
+			}
+			else{
+				openTab(e.innerHTML,id+".html")
+			}
+
+			
+		}
+
+		function openTab(title,url){
+			var tab=$('#tt').tabs('exists',title);
+			if(tab){
+				//若存在，则直接打开
+				$('#tt').tabs('select',title);
+				//alert("'"+title+"' 窗口已打开，不能同时打开多个窗口！");
+			}else{
+				//否则创建
+				$('#tt').tabs('add',{
+					title:title,
+					content:"<iframe width='100%' height='100%'  id='"+url.split(".")[0]+"' frameborder='0' scrolling='auto'  src='"+url+"'></iframe>",
+					closable:true,
+					cache:true
+				});
+			}
+		}
+		
+		 /*
+		*刷新时间
+		*/
+		function showTime(){
+			var date=new Date();
+			$('#currDate').html();
+			$('#currDate').html(date.toLocaleString()+"&nbsp;&nbsp;");
+		}
+
+		function remove(){
+			var tab = $('#tt').tabs('getSelected');
+			if (tab){
+				var index = $('#tt').tabs('getTabIndex', tab);
+				$('#tt').tabs('close', index);
+			}
+		}
+		var showFlag = 1;
+		function show(){
+			if(showFlag == 1){
+				showFlag = 0;
+				external.ChangeMaxMin('max');
+			}else{
+				showFlag = 1;
+				external.ChangeMaxMin('restore');
+			}
+			
+		}
+
+	</script>
+
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'west',split:false,title:'功能菜单',border:false" style="width:170px;padding:2px;" >
+		<div style="overflow: hidden;" id="menus" border="true"
+        fit="true">
+        
+		</div>
+	</div>
+	<div data-options="region:'north',border:false" style="height:40px;background:#E7F0FF;padding:0px;" align="center">
+		<span style="font-family: 微软雅黑; font-size:20px; color: #000000; text-align: center;" >HGui</span>
+		<IMG id="min" SRC="img/min_release.png" style="position:absolute;right:60px;" WIDTH="15" HEIGHT="15" BORDER="0" ALT="" onclick="external.ChangeMaxMin('min');">
+		<IMG id="max" SRC="img/max_release.png" style="position:absolute;right:35px;" WIDTH="15" HEIGHT="15" BORDER="0" ALT="" onclick="show();">
+		<IMG id="close" SRC="img/close_release.png" style="position:absolute;right:10px;" WIDTH="15" HEIGHT="15" BORDER="0" ALT="" onclick="external.Close('');">
+	</div>
+	<div data-options="region:'south',border:false" style="height:30px;background:#E7F0FF;padding:5px;" align="right">
+		<span id="currDate" style="font-family: 微软雅黑; font-size: 10px; color: #000000; text-align: center;"></span>
+	</div>
+	<div data-options="region:'center',border:false" >
+		<div id="tt" style="border:0px solid #ddd;" class="easyui-tabs" data-options="tools:'#tab-tools'" >
+		</div>
+	</div>
+	<div data-options="region:'east',border:true" style="width:1px;background:#E7F0FF;padding:5px;">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Jsoncpp的使用 - 小 楼 一 夜 听 春 雨 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="http://common.cnblogs.com/blog/css/common.css?id=2012041401"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="http://common.cnblogs.com/Skins/gertrude/style.css?id=2012041401"/>
+<link type="text/css" rel="stylesheet" href="http://common.cnblogs.com/Skins/gertrude/green.css"/>
+<link type="text/css" rel="stylesheet" href="http://common.cnblogs.com/blog/css/common2.css"/>
+<link type="text/css" rel="stylesheet" href="http://common.cnblogs.com/css/shStyle.css"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/kex1n/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/kex1n/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/kex1n/wlwmanifest.xml"/>
+<script src="http://common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script src="http://common.cnblogs.com/blog/script/common.js?id=2012041401" type="text/javascript"></script> 
+<script src="http://common.cnblogs.com/script/json2.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://common.cnblogs.com/script/syntaxHighlighter.js"></script>
+</head>
+<body>
+<a name="top"></a>
+<form method="post" action="2272328.html" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+var currentBlogApp='kex1n';
+//]]>
+</script>
+
+    
+<!--PageBeginHtml Block Begin-->
+<div id="clustrmaps-widget"></div><script type="text/javascript">var _clustrmaps = {'url' : 'http://www.cnblogs.com/kex1n/', 'user' : 949057, 'server' : '4', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2011-11-02', 'lang' : 'zh', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www4.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www4.clustrmaps.com/user/d8ee7b41"><img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.cnblogs.com-kex1n--thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>
+
+<!--PageBeginHtml Block End-->
+
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/kex1n/">小楼一夜听春雨</a></h1>
+<p id="tagline">Stay Hungry，Stay Foolish！
+积累、沉淀、做最好的自己！</p>
+			<div id="main">
+				
+				
+	<div class="post">
+		<h2>
+			<a id="cb_post_title_url" href="http://www.cnblogs.com/kex1n/archive/2011/12/02/2272328.html">Jsoncpp的使用</a>
+		</h2>
+		<div id="cnblogs_post_body"><p><strong>JSON</strong>(JavaScript Object Notation) 是一种轻量级的数据交换格式。 易于人阅读和编写。同时也易于机器解析和生成。 它基于<a href="http://www.crockford.com/javascript">JavaScript Programming Language</a>,&nbsp;<a href="http://www.ecma-international.org/publications/files/ecma-st/ECMA-262.pdf">Standard ECMA-262 3rd Edition - December 1999</a>的一个子集。 JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C++, C#, Java, JavaScript, Perl, Python等）。 这些特性使JSON成为理想的数据交换语言。</p>
+<p>JSON建构于两种结构：</p>
+<ul>
+<li>&ldquo;名称/值&rdquo;对的集合（A collection of name/value pairs）。不同的语言中，它被理解为<em>对象（object）</em>，纪录（record），结构（struct），字典（dictionary），哈希表（hash table），有键列表（keyed list），或者关联数组 （associative array）。</li>
+<li>值的有序列表（An ordered list of values）。在大部分语言中，它被理解为数组（array）。</li>
+</ul>
+<p>这些都是常见的数据结构。事实上大部分现代计算机语言都以某种形式支持它们。这使得一种数据格式在同样基于这些结构的编程语言之间交换成为可能。</p>
+<p>JSON具有以下这些形式：</p>
+<p>对象是一个无序的&ldquo;&lsquo;名称/值&rsquo;对&rdquo;集合。一个对象以&ldquo;{&rdquo;（左括号）开始，&ldquo;}&rdquo;（右括号）结束。每个&ldquo;名称&rdquo;后跟一个&ldquo;:&rdquo;（冒号）；&ldquo;&lsquo;名称/值&rsquo; 对&rdquo;之间使用&ldquo;,&rdquo;（逗号）分隔。</p>
+<p><img src="http://www.json.org/object.gif" alt="" width="598" height="113" /></p>
+<p>数组是值（value）的有序集合。一个数组以&ldquo;[&rdquo;（左中括号）开始，&ldquo;]&rdquo;（右中括号）结束。值之间使用&ldquo;,&rdquo;（逗号）分隔。</p>
+<p><img src="http://www.json.org/array.gif" alt="" width="598" height="113" /></p>
+<p>值（<em>value</em>）可以是双引号括起来的字符串（<em>string</em>）、数值(number)、<code>true</code>、<code>false</code>、&nbsp;<code>null</code>、对象（object）或者数组（array）。这些结构可以嵌套。</p>
+<p><img src="http://www.json.org/value.gif" alt="" width="598" height="278" /></p>
+<p>字符串（<em>string</em>）是由双引号包围的任意数量Unicode字符的集合，使用反斜线转义。一个字符（character）即一个单独的字符串（character string）。</p>
+<p>字符串（<em>string</em>）与C或者Java的字符串非常相似。</p>
+<p><img src="http://www.json.org/string.gif" alt="" width="598" height="413" /></p>
+<p>数值（<em>number</em>）也与C或者Java的数值非常相似。除去未曾使用的八进制与十六进制格式。除去一些编码细节。</p>
+<p><img src="http://www.json.org/number.gif" alt="" width="598" height="266" /></p>
+<p>空白可以加入到任何符号之间。 以下描述了完整的语言。</p>
+<p>&nbsp;</p>
+<p>C++要使用JSON来解析数据，一般采用<a href="http://sourceforge.net/projects/jsoncpp/">jsoncpp</a>.&nbsp;</p>
+<p>网站：<a href="http://sourceforge.net/projects/jsoncpp/">http://sourceforge.net/projects/jsoncpp/</a></p>
+<p>下载了之后，解压，然后打开\jsoncpp-src-0.5.0\jsoncpp-src-0.5.0\makefiles\vs71</p>
+<p>下的工程文件，进行编译链接就可以得到一个静态链接库json.lib</p>
+<p>要用jsoncpp只需要将这个lib文件拷贝到你的工程目录下，并将jsoncpp-src-0.5.0\jsoncpp-src-0.5.0\include\json</p>
+<p>复制到工程目录下，然后将这些头文件加到工程中去就可以了。</p>
+<p>例子：</p>
+<p>{<br /> "name" : "小楼一夜听春雨",<br /> "age" : 27<br />}</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:cpp;gutter:true;">#pragma comment(lib, "json_mtd.lib")
+
+#include &lt;fstream&gt;
+#include &lt;cassert&gt;
+#include "json/json.h"
+
+int main()
+{
+	ifstream ifs;
+	ifs.open("testjson.json");
+	assert(ifs.is_open());
+
+	Json::Reader reader;
+	Json::Value root;
+	if (!reader.parse(ifs, root, false))
+	{
+		return -1;
+	}
+
+	std::string name = root["name"].asString();
+	int age = root["age"].asInt();
+
+	std::cout&lt;&lt;name&lt;&lt;std::endl;
+	std::cout&lt;&lt;age&lt;&lt;std::endl;
+
+	return 0;
+}
+</pre>
+</div>
+<p>　　</p>
+<p>[{"name" : "xiaoy", "age" :17} , {"name" : "xiaot", "age" : 20}]</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:cpp;gutter:true;">#pragma comment(lib, "json_mtd.lib")
+
+#include &lt;fstream&gt;
+#include &lt;cassert&gt;
+#include "json/json.h"
+
+int main()
+{
+	ifstream ifs;
+	ifs.open("testjson.json");
+	assert(ifs.is_open());
+
+	Json::Reader reader;
+	Json::Value root;
+	if (!reader.parse(ifs, root, false))
+	{
+		return -1;
+	}
+
+	std::string name;
+	int age;
+	int size = root.size();
+	for (int i=0; i&lt;size; ++i)
+	{
+		name = root[i]["name"].asString();
+		age = root[i]["age"].asInt();
+
+		std::cout&lt;&lt;name&lt;&lt;" "&lt;&lt;age&lt;&lt;std::endl;
+	}
+
+	return 0;
+}
+</pre>
+</div>
+<p>　　</p>
+<p><strong>json写入：</strong></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:cpp;gutter:true;">#pragma comment(lib, "json_mtd.lib")
+
+#include &lt;fstream&gt;
+#include &lt;cassert&gt;
+#include "json/json.h"
+
+
+int main()
+{
+	Json::Value root;
+	Json::FastWriter writer;
+	Json::Value person;
+
+	person["name"] = "hello world";
+	person["age"] = 100;
+	root.append(person);
+
+	std::string json_file = writer.write(root);
+
+
+	ofstream ofs;
+	ofs.open("test1.json");
+	assert(ofs.is_open());
+	ofs&lt;&lt;json_file;
+
+	return 0;
+}
+</pre>
+</div>
+<p>结果：[{"age":100,"name":"hello world"}]</p>
+<p>&nbsp;</p>
+<p>json对数组的解析还支持STL的风格。即</p>
+<div class="cnblogs_code">
+<div><span>Json::Value::Members member;</span><span>//</span><span>Members  这玩意就是vector&lt;string&gt;，typedef了而已</span><span><br /></span><span>for</span><span> (Json::Value::iterator itr </span><span>=</span><span> objArray.begin(); itr </span><span>!=</span><span> objArray.end(); itr</span><span>++</span><span>)<br />{<br />    member </span><span>=</span><span> (</span><span>*</span><span>itr).getMemberNames();<br />    </span><span>for</span><span> (Json::Value::Members::iterator iter </span><span>=</span><span> member.begin(); iter </span><span>!=</span><span> member.end(); iter</span><span>++</span><span>)<br />    {<br />        </span><span>string</span><span> str_temp </span><span>=</span><span> (</span><span>*</span><span>itr)[(</span><span>*</span><span>iter)].asString();<br />    }<br />}</span></div>
+</div>
+<p>此种风格与上面的类似，只是上面的只是取"text"节点，而后一种是输出所有节点。</p>
+<p><strong><br /></strong></p></div>
+<script type="text/javascript">
+if ($ != jQuery) {
+	$ = jQuery.noConflict();
+}
+var isLogined = false;
+var cb_blogId = 64000;
+var cb_entryId = 2272328;
+var cb_blogApp = "kex1n";
+var cb_blogUserGuid = "9f926261-bde4-de11-ba8f-001cf0cd104b";
+var cb_entryCreatedDate = '2011/12/2 16:43:00';
+</script>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="green_channel" style="display:none;">
+绿色通道：<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(cb_entryId,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a><a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a><a id="green_channel_favorite" onclick="AddToWz(2272328);return false;" href="javascript:void(0);" >收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/%e5%b0%8f+%e6%a5%bc+%e4%b8%80+%e5%a4%9c+%e5%90%ac+%e6%98%a5+%e9%9b%a8" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="http://static.cnblogs.com/images/icon_sina.gif" alt="" /></a>
+</div>
+<div id="digg_block">
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<div id="author_profile_detail" class="author_profile_info">
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow"></div>
+</div>
+<div id="div_digg" style="display:none;">										
+	<div class="diggit" onclick="DiggIt(cb_entryId,cb_blogId,1)"> 
+		<span class="diggnum" id="digg_count"></span>
+	</div>
+	<div class="buryit" onclick="DiggIt(cb_entryId,cb_blogId,2)"> 
+		<span class="burynum" id="bury_count"></span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips"></div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev">
+</div>
+</div>
+<script type="text/javascript">
+LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+</script>
+
+
+
+
+		<p class="postfoot">
+			posted on 2011-12-02 16:43 <a href='http://www.cnblogs.com/kex1n/'>小 楼 一 夜 听 春 雨</a> 阅读(1184) <a href='#commentform'>评论(0)</a>  <a href ="http://www.cnblogs.com/kex1n/admin/EditPosts.aspx?postid=2272328" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2272328);return false;">收藏</a>
+		</p>
+	</div>
+	<img src ="http://www.cnblogs.com/kex1n/aggbug/2272328.html?type=1&webview=1" width="1px" height="1px" alt=""/>
+	
+	
+<div id="comment_form" class="commentform">
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="#" onclick="return RefreshCommentList(cb_entryId);" name="commentform" id="lnk_RefreshComments">刷新评论列表</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"></div>
+
+<script type="text/javascript">
+    commentManager.loadCommentForm();
+</script>
+
+<div class="ad_text_commentbox"><a href="http://q.cnblogs.com/" target="_blank">程序员问答社区，解决您的IT难题</a></div>
+<div id="clear_read_link"></div>
+<script type="text/javascript">
+    $("#clear_read_link").html('<a href="http://archive.cnblogs.com/a/' + cb_entryId + '/" target="_blank" rel="nofollow">简洁阅读版式</a>')
+</script>
+<div id="site_nav_under">
+<a href="http://www.cnblogs.com/" target="_blank" title="程序员的网上家园">网站首页</a><a href="http://q.cnblogs.com/" target="_blank" title="程序员问答社区">博问</a><a href="http://news.cnblogs.com/" target="_blank" title="IT新闻">新闻</a><a href="http://home.cnblogs.com/ing/" target="_blank">闪存</a><a href="http://job.cnblogs.com/" target="_blank">程序员招聘</a><a href="http://kb.cnblogs.com/" target="_blank">知识库</a> 
+<div id="site_editor_opt"></div>
+<script type="text/javascript">
+    if (isLogined) {
+        showEditorOpt();
+    }
+</script>
+</div>
+
+
+<script type="text/javascript">
+    var enableGoogleAd = true;
+    if ($("#cnblogs_post_body").text().length < 1000) {
+        enableGoogleAd = false;
+    }
+</script>
+<script type='text/javascript'>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        if (enableGoogleAd) {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            gads.src = 'http://common.cnblogs.com/script/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        }
+    })();
+</script>
+<script type='text/javascript'>
+    if (enableGoogleAd) {
+        try {
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C1', [300, 250], 'div-gpt-ad-1320933818841-0').addService(googletag.pubads());
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C2', [468, 60], 'div-gpt-ad-1320933818841-1').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        } catch (e) { }
+    }
+</script>
+
+<div id="google_ad_c1" class="c_ad_block">
+<!-- cnblogs_blogpost_C1 -->
+<div id='div-gpt-ad-1320933818841-0' style='width:300px; height:250px;'>
+<script type='text/javascript'>
+    if (enableGoogleAd) {
+        try {
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1320933818841-0'); });
+        } catch (e) { }
+    }
+</script>
+</div>
+</div>
+
+<div class="itnews c_ad_block">
+<b>最新IT新闻</b>:<br />
+
+          ·  <a href="http://news.cnblogs.com/n/138878/" target="_blank">Facebook对Google的威胁在哪？看看两大巨头的“广告生成工具”你就明白了</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/138877/" target="_blank">易宝支付副总裁余晨：不看好国内类Square产品</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/138876/" target="_blank">腾讯MTK版手机QQ服务未中断 仅暂停技术支持</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/138875/" target="_blank">维基解密网创始人阿桑奇将主持自制电视节目</a><br />
+	
+          ·  <a href="http://news.cnblogs.com/n/138872/" target="_blank">淘宝联盟2012向第三方开发者分成将达5亿</a><br />
+	
+&raquo; <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a>
+</div>
+
+
+<div class="itnews c_ad_block" id="kb_block">
+<b>最新知识库文章</b>:<br />
+<div id="kb_recent">
+
+·  <a href="http://kb.cnblogs.com/page/138696/" target="_blank">使用缓存的9大误区（上）</a><br />
+
+·  <a href="http://kb.cnblogs.com/page/138774/" target="_blank">Facebook工程发布技术的幕后故事</a><br />
+
+·  <a href="http://kb.cnblogs.com/page/138573/" target="_blank">使用Phalanger整合PHP和.Net</a><br />
+
+·  <a href="http://kb.cnblogs.com/page/134052/" target="_blank">程序员编程生产力相差10倍意味着什么？</a><br />
+
+·  <a href="http://kb.cnblogs.com/page/138127/" target="_blank">敏捷开发：如何通过回顾保持学习状态</a><br />
+
+</div>
+&raquo; <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a>
+</div>
+
+<div id="google_ad_c2" class="c_ad_block">
+<!-- cnblogs_blogpost_C2 -->
+<div id='div-gpt-ad-1320933818841-1' style='width:468px; height:60px;'>
+<script type='text/javascript'>
+    if (enableGoogleAd) {
+        try {
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1320933818841-1'); });
+        } catch (e) { }
+
+    }
+</script>
+</div>
+</div>
+<div id="ad_under_comment2" class="c_ad_block" style="display:none;">
+<a href="http://www.china-pub.com/STATIC07/1107/2011chinapub_6810_110718/2011chinapub_6810_110718.asp" target="_blank" rel="nofollow"><img src="http://static.cnblogs.com/images/a4/china-pub.jpg" alt="" style="border:0px;"/></a><br />
+<a href="http://www.china-pub.com/STATIC07/1107/zh_autumntb_110725/zh_autumntb_110725.asp" target="_blank" rel="nofollow">China-pub 2011秋季教材巡展</a><br />
+<a href="http://www.china-pub.com/static07/0901/zh_jueba_090121.asp" target="_blank" rel="nofollow">China-Pub 计算机绝版图书按需印刷服务</a><br />
+</div>
+<script type="text/javascript">
+    if (enableGoogleAd) {
+        if (document.getElementById("ad_under_comment2")) {
+            $("#ad_under_comment2").show();
+        }
+    }
+    else {
+        $("#google_ad_c1").hide();
+        $("#google_ad_c2").hide();
+    }
+</script>
+
+<div id="HistoryToday" class="c_ad_block">
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    });
+</script>
+</div>
+
+
+
+
+			
+			</div>
+			<div id="rightmenu">
+				
+					<table id="Calendar1_entryCal" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" style="border-width:1px;border-style:solid;border-collapse:collapse;">
+	<tr><td colspan="7" style="background-color:Silver;"><table class="CalTitle" cellspacing="0" style="width:100%;border-collapse:collapse;">
+		<tr><td class="CalNextPrev" style="width:15%;"><a href="javascript:__doPostBack('Calendar1$entryCal','V4322')" style="color:Black" title="Go to the previous month">&lt;</a></td><td align="center" style="width:70%;">2011年12月</td><td class="CalNextPrev" align="right" style="width:15%;"><a href="javascript:__doPostBack('Calendar1$entryCal','V4383')" style="color:Black" title="Go to the next month">&gt;</a></td></tr>
+	</table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center" style="width:14%;">27</td><td class="CalOtherMonthDay" align="center" style="width:14%;">28</td><td class="CalOtherMonthDay" align="center" style="width:14%;">29</td><td class="CalOtherMonthDay" align="center" style="width:14%;">30</td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/1.html"><u>1</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/2.html"><u>2</u></a></td><td class="CalWeekendDay" align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/3.html"><u>3</u></a></td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/4.html"><u>4</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/5.html"><u>5</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/6.html"><u>6</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/7.html"><u>7</u></a></td><td align="center" style="width:14%;">8</td><td align="center" style="width:14%;">9</td><td class="CalWeekendDay" align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/10.html"><u>10</u></a></td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/11.html"><u>11</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/12.html"><u>12</u></a></td><td align="center" style="width:14%;">13</td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/14.html"><u>14</u></a></td><td align="center" style="width:14%;">15</td><td align="center" style="width:14%;">16</td><td class="CalWeekendDay" align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/17.html"><u>17</u></a></td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/18.html"><u>18</u></a></td><td align="center" style="width:14%;">19</td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/20.html"><u>20</u></a></td><td align="center" style="width:14%;">21</td><td align="center" style="width:14%;">22</td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/23.html"><u>23</u></a></td><td class="CalWeekendDay" align="center" style="width:14%;">24</td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;">25</td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/26.html"><u>26</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/27.html"><u>27</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/28.html"><u>28</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/29.html"><u>29</u></a></td><td align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/30.html"><u>30</u></a></td><td class="CalWeekendDay" align="center" style="width:14%;"><a href="http://www.cnblogs.com/kex1n/archive/2011/12/31.html"><u>31</u></a></td></tr><tr><td class="CalOtherMonthDay" align="center" style="width:14%;">1</td><td class="CalOtherMonthDay" align="center" style="width:14%;">2</td><td class="CalOtherMonthDay" align="center" style="width:14%;">3</td><td class="CalOtherMonthDay" align="center" style="width:14%;">4</td><td class="CalOtherMonthDay" align="center" style="width:14%;">5</td><td class="CalOtherMonthDay" align="center" style="width:14%;">6</td><td class="CalOtherMonthDay" align="center" style="width:14%;">7</td></tr>
+</table>
+
+					
+<h3>导航</h3>
+<ul>
+			<li><a id="MyLinks1_HomeLink" href="http://www.cnblogs.com/">博客园</a></li>
+			<li><a id="MyLinks1_MyHomeLink" href="http://www.cnblogs.com/kex1n/">首页</a></li>
+			<li><a id="MyLinks1_NewPostLink" rel="nofollow" href="http://www.cnblogs.com/kex1n/admin/EditPosts.aspx?opt=1">新随笔</a></li>
+			<li><a id="MyLinks1_ContactLink" accesskey="9" rel="nofollow" href="http://space.cnblogs.com/msg/send/%e5%b0%8f+%e6%a5%bc+%e4%b8%80+%e5%a4%9c+%e5%90%ac+%e6%98%a5+%e9%9b%a8">联系</a></li>
+			<li><a id="MyLinks1_Syndication" href="http://www.cnblogs.com/kex1n/rss">订阅</a><a id="MyLinks1_XMLLink" href="http://www.cnblogs.com/kex1n/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" /></a>
+			<li><a id="MyLinks1_Admin" rel="nofollow" href="http://www.cnblogs.com/kex1n/admin/EditPosts.aspx">管理</a></li>
+</ul>
+					
+<h3>统计</h3>
+	<ul>
+		<li>随笔 - 505
+		<li>文章 - 1
+		<li>评论 - 17
+		<li>引用 - 0
+	</li>
+</ul>
+					
+<h3>公告</h3>
+	<div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/kex1n/">小 楼 一 夜 听 春 雨</a><br/>园龄：<a href="http://home.cnblogs.com/u/kex1n/" title="入园时间：2009-12-09">2年4个月</a><br/>粉丝：<a href="http://home.cnblogs.com/u/kex1n/followers/">24</a><br/>关注：<a href="http://home.cnblogs.com/u/kex1n/followees/">0</a><div id="p_b_follow"></div><script type="text/javascript">cnblogs.UserManager.GetFollowStatus('9f926261-bde4-de11-ba8f-001cf0cd104b')</script></div>
+
+					
+<script type="text/javascript">
+    var blogapp = 'kex1n';
+</script>
+<div class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="widget_my_zzk" class="div_my_zzk"><input  type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk"/>&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"/></div>
+
+</div>
+
+
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+
+		<li><a id="SingleColumn1_ctl01_rptMainLinks_lnkLinkItem_0" href="http://www.cnblogs.com/kex1n/MyPosts.html">我的随笔</a></li>
+	
+		<li><a id="SingleColumn1_ctl01_rptMainLinks_lnkLinkItem_1" href="http://www.cnblogs.com/kex1n/MyComments.html">我的评论</a></li>
+	
+		<li><a id="SingleColumn1_ctl01_rptMainLinks_lnkLinkItem_2" title="我发表过评论的随笔" href="http://www.cnblogs.com/kex1n/OtherPosts.html">我的参与</a></li>
+	
+		<li><a id="SingleColumn1_ctl01_rptMainLinks_lnkLinkItem_3" href="http://www.cnblogs.com/kex1n/RecentComments.html">最新评论</a></li>
+	
+		<li><a id="SingleColumn1_ctl01_rptMainLinks_lnkLinkItem_4" href="http://www.cnblogs.com/kex1n/tag/">我的标签</a></li>
+	
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div>
+		<h3>随笔分类</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/kex1n/category/342347.html">ACE(4)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_0" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342347/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/kex1n/category/342348.html">BOOST(8)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_1" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342348/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/kex1n/category/342349.html">C/C++(34)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_2" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342349/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/kex1n/category/262593.html">C++(48)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_3" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262593/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/kex1n/category/300867.html">D3D(75)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_4" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/300867/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/kex1n/category/342350.html">DirectX9(1)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_5" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342350/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/kex1n/category/342351.html">Game_dev(7)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_6" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342351/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/kex1n/category/300975.html">Irrlicht(3)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_7" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/300975/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/kex1n/category/262596.html">Lua(1)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_8" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262596/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/kex1n/category/331587.html">MYGUI(1)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_9" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/331587/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/kex1n/category/331588.html">OGRE(21)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_10" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/331588/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/kex1n/category/262597.html">Python</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_11" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262597/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/kex1n/category/342352.html">VC++(20)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_12" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342352/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/kex1n/category/262598.html">VC++ VS(38)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_13" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262598/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/kex1n/category/342359.html">测试(2)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_14" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342359/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/kex1n/category/342358.html">架构设计(4)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_15" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342358/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_16" href="http://www.cnblogs.com/kex1n/category/262595.html">开源(14)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_16" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262595/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_17" href="http://www.cnblogs.com/kex1n/category/342354.html">其他开源库(2)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_17" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342354/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_18" href="http://www.cnblogs.com/kex1n/category/342353.html">人生感悟(11)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_18" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342353/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_19" href="http://www.cnblogs.com/kex1n/category/262933.html">生活随想(2)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_19" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262933/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_20" href="http://www.cnblogs.com/kex1n/category/342356.html">数据结构(4)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_20" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342356/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_21" href="http://www.cnblogs.com/kex1n/category/342355.html">数据库(3)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_21" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342355/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_22" href="http://www.cnblogs.com/kex1n/category/342360.html">算法(1)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_22" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342360/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_23" href="http://www.cnblogs.com/kex1n/category/342361.html">网络(3)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_23" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342361/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_24" href="http://www.cnblogs.com/kex1n/category/342362.html">英语学习(6)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_24" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342362/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_25" href="http://www.cnblogs.com/kex1n/category/262592.html">游戏开发(42)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_25" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262592/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_26" href="http://www.cnblogs.com/kex1n/category/342357.html">杂谈(22)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_26" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/342357/rss&#39;);">(rss)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_0_Link_27" href="http://www.cnblogs.com/kex1n/category/262932.html">职业规划(10)</a> <a id="SingleColumn1_Categories_CatList_LinkList_0_RssLink_27" href="#" onclick="return open_link(&#39;http://feed.cnblogs.com/blog/u/64000/category/262932/rss&#39;);">(rss)</a></li>
+			
+				</ul>
+			
+	
+		<h3>随笔档案</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/kex1n/archive/2012/04.html">2012年4月 (1)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/kex1n/archive/2012/03.html">2012年3月 (12)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/kex1n/archive/2012/02.html">2012年2月 (9)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/kex1n/archive/2012/01.html">2012年1月 (12)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/kex1n/archive/2011/12.html">2011年12月 (50)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/kex1n/archive/2011/11.html">2011年11月 (26)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/kex1n/archive/2011/10.html">2011年10月 (23)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/kex1n/archive/2011/09.html">2011年9月 (24)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/kex1n/archive/2011/08.html">2011年8月 (65)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/kex1n/archive/2011/07.html">2011年7月 (13)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/kex1n/archive/2011/06.html">2011年6月 (4)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/kex1n/archive/2011/05.html">2011年5月 (9)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/kex1n/archive/2011/04.html">2011年4月 (19)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/kex1n/archive/2011/03.html">2011年3月 (4)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/kex1n/archive/2011/02.html">2011年2月 (4)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/kex1n/archive/2011/01.html">2011年1月 (17)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/kex1n/archive/2010/12.html">2010年12月 (5)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/kex1n/archive/2010/11.html">2010年11月 (14)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/kex1n/archive/2010/10.html">2010年10月 (24)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/kex1n/archive/2010/09.html">2010年9月 (10)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/kex1n/archive/2010/08.html">2010年8月 (13)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/kex1n/archive/2010/07.html">2010年7月 (1)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/kex1n/archive/2010/05.html">2010年5月 (3)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_23" href="http://www.cnblogs.com/kex1n/archive/2010/04.html">2010年4月 (11)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_24" href="http://www.cnblogs.com/kex1n/archive/2010/03.html">2010年3月 (11)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_25" href="http://www.cnblogs.com/kex1n/archive/2010/01.html">2010年1月 (26)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_26" href="http://www.cnblogs.com/kex1n/archive/2009/12.html">2009年12月 (2)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_27" href="http://www.cnblogs.com/kex1n/archive/2009/11.html">2009年11月 (1)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_28" href="http://www.cnblogs.com/kex1n/archive/2009/07.html">2009年7月 (6)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_29" href="http://www.cnblogs.com/kex1n/archive/2009/06.html">2009年6月 (19)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_30" href="http://www.cnblogs.com/kex1n/archive/2009/05.html">2009年5月 (18)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_31" href="http://www.cnblogs.com/kex1n/archive/2009/04.html">2009年4月 (3)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_32" href="http://www.cnblogs.com/kex1n/archive/2009/03.html">2009年3月 (13)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_33" href="http://www.cnblogs.com/kex1n/archive/2009/02.html">2009年2月 (17)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_34" href="http://www.cnblogs.com/kex1n/archive/2009/01.html">2009年1月 (7)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_35" href="http://www.cnblogs.com/kex1n/archive/2008/12.html">2008年12月 (1)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_36" href="http://www.cnblogs.com/kex1n/archive/2008/10.html">2008年10月 (1)</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_1_Link_37" href="http://www.cnblogs.com/kex1n/archive/2008/09.html">2008年9月 (6)</a> </li>
+			
+				</ul>
+			
+	
+		<h3>useful</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_2_Link_0" rel="nofollow" href="http://www.cppblog.com/tonykee/">3D开发</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_2_Link_1" rel="nofollow" href="http://blog.csdn.net/Nhsoft">Nhsoft的专栏3D图形,游戏.多媒体</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_2_Link_2" rel="nofollow" href="http://www.cppblog.com/Solstice/">陈硕的Blog</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_2_Link_3" rel="nofollow" href="http://blog.csdn.net/pizi0475">痞子龙3D编程</a> </li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_LinkList_2_Link_4" rel="nofollow" href="http://www.cnblogs.com/ychellboy/">一个壮族小伙的技术博客</a> </li>
+			
+				</ul>
+			
+	
+
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"></div>
+</div>
+
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"></div>
+</div>
+
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"></div>
+</div>
+				
+			</div>			
+			
+<p id="footer">
+	Powered by: 
+	<br />
+	
+	<a id="Footer1_Hyperlink3" NAME="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br />
+	Copyright &copy; 小 楼 一 夜 听 春 雨
+</p>
+	
+
+</form> 
+<script type="text/javascript">
+    if (!isSyntaxHighlighted) {
+        try {
+            SyntaxHighlighter.all();
+        } catch (e) { }
+    }
+</script>
+<script type="text/javascript" src="http://common.cnblogs.com/script/ShowHidden.js"></script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-476124-1']);
+    _gaq.push(['_setDomainName', 'cnblogs.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+</body>
+</html>

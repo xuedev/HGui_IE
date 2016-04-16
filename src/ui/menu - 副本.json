@@ -1,0 +1,57 @@
+[
+	{"id":-01,"text":"ARM终端概览","attributes":{"url":"armgl.html"}},
+	
+	{	"id":-1,
+		"text":"软件设置",
+		"children":[
+			{"id":-11,"text":"软件升级设置","attributes":{"url":"1.html"}}
+		]
+	},
+
+	{	"id":0,
+		"text":"终端监控管理",
+		"children":[
+
+				{
+					"id":1,
+					"text":"系统级监控",
+					"children":[
+						{"id":11,"text":"系统核心数据","attributes":{"url":"sys_rate_set.html"}},
+						{"id":13,"text":"串口状态","attributes":{"url":"1.html"}},
+						{"id":14,"text":"网卡状态","attributes":{"url":"1.html"}}
+						]
+				},
+				{
+					"id":2,
+					"text":"终端部品监控",
+					"children":[
+						{"id":21,"text":"热敏打印机","attributes":{"url":"1.html"}},
+						{"id":22,"text":"打印机状态","attributes":{"url":"1.html"}},
+						{"id":23,"text":"出票机状态","attributes":{"url":"1.html"}}
+						]
+				},
+				{
+					"id":3,
+					"text":"应用类监控",
+					"children":[
+						{"id":31,"text":"后台状态监控","attributes":{"url":"1.html"}},
+						{"id":32,"text":"主控程序监控","attributes":{"url":"1.html"}}
+						]
+				}
+			]
+
+		},
+
+	{	"id":1,
+		"text":"终端升级",
+		"children":[
+			{"id":-11,"text":"远程升级","attributes":{"url":"1.html"}}
+		]
+	},
+	{	"id":2,
+		"text":"终端部品检测",
+		"children":[
+			{"id":-11,"text":"部品1检测","attributes":{"url":"1.html"}}
+		]
+	}
+]

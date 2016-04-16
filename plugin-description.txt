@@ -1,0 +1,1 @@
+Ìá¹© const TCHAR* Func(const TCHAR* param,HWND hwnd)º¯Êý

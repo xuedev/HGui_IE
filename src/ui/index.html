@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+	<link rel="stylesheet" type="text/css" href="css/btn.css">
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	<script src="js/highcharts.js"></script>
+	<script src="js/modules/exporting.js"></script>
+	<script type="text/javascript" src="js/comm.js"></script>
+	<script src="js/json2.js"></script>
+	<style>
+		body,div,p,ul,li,font,span,td,th{
+		font-size:10pt;
+		line-height:200%;
+		}
+		
+		.tree-title{
+			font-size:10pt;
+			line-height:200%;
+		}
+		.icon-set{ 
+			background:url('themes/icons/set.png') no-repeat; 
+			}
+	</style>
+
+	<script type="text/javascript">
+		
+		var tab;
+		//页面初始化时执行
+		$(function(){
+
+			//初始化界面
+			initUI();
+			
+			//初始化软件配置
+			initCfg();
+			
+			//初始化动态查询任务
+			initTask();
+			
+		});
+
+
+		function initTask(){
+
+			//设置定时查询系统核心参数
+			setInterval("getSysCoreInfo();",check_frequency*1000);
+			//设置定时查询ARM网络连接状态
+			setInterval("GetNetStateProc();",check_frequency*1000);
+			//设置定时查询COM端口连接状态
+			setInterval("GetGetComInfoProc();",check_frequency*1000);
+			//设置定时设置ARM运行状态
+			setInterval("GetArmRunTimeProc();",check_frequency*1000);
+			
+			//查询硬件状态
+			setInterval("GetDetectProc();",check_frequency*1000);
+			
+			//查询ARM锁机、关机状态
+			setInterval("getServerCmd();",check_frequency*1000);
+
+			//查询ARM库存状态
+			setInterval("getArmKc();",check_frequency*1000);
+			
+		}
+		function initCfg(){
+			//查询、设置检测的频率
+			//external.Control(GetCheckFrequency);//..........................	
+
+			GetCheckFrequency();
+			//得到服务器IP和端口
+			getServerRootUrl();
+			//查询ARM升级路径
+			getUpdateUrl();
+			//得到票证管理服务器网址
+			getPzglUrl();
+			//查询、设置ARM服务器监听地址
+			getServerListenUrl();
+			//得到ARM服务器通知通告、锁机地址
+			getServerArmglUrl();
+			//得到库存查询的地址
+			getArmKcUrl();
+
+		}
+		function initUI(){
+			external.SetNoTitle("ARM终端实时监控软件");
+			$('#tt').tabs({ 
+					fit: true,
+					onSelect:function(title,a){ 
+						//alert(title+' is selected'); 
+						OnTabSelect(title);
+						//alert(this.html());
+						//alert(this.tabs);
+					} 
+						
+			});
+			$('#tree').tree({
+				  url:'menu.json',
+				  onClick:function(node){
+						var attr = node.attributes;
+						if(attr){
+							if(attr.url == "update.html"){
+								openTab(node.text,updateUrl);
+							}else if(attr.url == "pzgl.html"){
+								openTab(node.text,pzglUrl);
+							}
+							else{
+								openTab(node.text,attr.url);
+								}
+						}
+							
+						
+				  }
+			 });
+			
+			$('#tt').tabs('add',{
+					title:"ARM终端概览",
+					content:"<iframe width='100%' height='100%'  id='armgl' frameborder='0' scrolling='auto'  src='armgl.html'></iframe>",
+					closable:false
+				});
+
+			//setInterval(showTime,1000);
+			tab = $('#tt');
+		}
+
+		function action(e){
+			var id = e.id.split(".")[0];
+			if(id == "update"){
+				openTab(e.innerHTML,updateUrl);
+			}else if(id == "pzgl"){
+				openTab(e.innerHTML,pzglUrl);
+			}
+			else{
+				openTab(e.innerHTML,id+".html")
+			}
+
+			
+		}
+
+		function openTab(title,url){
+			var tab=$('#tt').tabs('exists',title);
+			if(tab){
+				//若存在，则直接打开
+				$('#tt').tabs('select',title);
+				alert("'"+title+"' 窗口已打开，不能同时打开多个窗口！");
+			}else{
+				//否则创建
+				$('#tt').tabs('add',{
+					title:title,
+					content:"<iframe width='100%' height='100%'  id='"+url.split(".")[0]+"' frameborder='0' scrolling='auto'  src='"+url+"'></iframe>",
+					closable:true,
+					cache:false
+				});
+			}
+		}
+		
+		 /*
+		*刷新时间
+		*/
+		function showTime(){
+			var date=new Date();
+			$('#currDate').html();
+			$('#currDate').html(date.toLocaleString()+"&nbsp;&nbsp;");
+		}
+
+		function remove(){
+			var tab = $('#tt').tabs('getSelected');
+			if (tab){
+				var index = $('#tt').tabs('getTabIndex', tab);
+				$('#tt').tabs('close', index);
+			}
+		}
+
+	</script>
+
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'west',split:true,title:'功能菜单',href:'menu.html'" style="width:200px;padding:10px;"><ul id="tree"></ul></div>
+	<!--
+	<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>
+	-->
+	<div data-options="region:'south',border:false" style="height:30px;background:#E7F0FF;padding:5px;" align="right">
+		<span id="currDate"></span>
+	</div>
+	<div data-options="region:'center',title:'详细信息'" >
+		<div id="tt" style="border:0px solid #ddd;" class="easyui-tabs" data-options="tools:'#tab-tools'" >
+		</div>
+	</div>
+	
+	
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="css/demo.css">
+		<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				init();
+			});
+
+			function init(){
+				var insert =   '{"module":"DataAccess","func":"InsertData","param":"nsrxx,nsrxx,111111,乐12乐3,2013_04_16 14:13:40","callback":"alert"}';
+				var query =   '{"module":"DataAccess","func":"QueryData","param":"nsrxx,select * from nsrxx","callback":"handleQuery"}';
+				
+				var exeSql =   '{"module":"DataAccess","func":"ExecuteSql","param":"nsrxx,create a","callback":"alert"}';
+
+				$("#insert").click(function(){
+					var ret = external.AsyncRun(insert);
+				});
+				$("#query").click(function(){
+					var ret = external.AsyncRun(query);
+				});
+				$("#exeSql").click(function(){
+					var ret = external.AsyncRun(exeSql);
+				});
+
+			}
+
+			function show(jsonData){
+				alert(jsonData);
+				return "好";
+			}
+
+		</script>
+		<style type="text/css">
+			/*demo page css*/
+			body{ font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+			.demoHeaders { margin-top: 2em; }
+			#dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+			#dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+			ul#icons {margin: 0; padding: 0;}
+			ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+			ul#icons span.ui-icon {float: left; margin: 0 4px;}
+		</style>	
+	</head>
+	<body>
+	<h1>测试数据库插件</h1>
+		<a id="insert" href="#">插入数据</a>
+		<a id="query" href="#">查询数据</a>
+		<a id="exeSql" href="#">执行Sql</a>
+	</body>
+</html>
+
+

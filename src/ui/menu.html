@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <TITLE>菜单</TITLE>
+  <style>
+	.icon-li{ 
+			background:url('themes/icons/li.png') no-repeat; 
+			}
+	</style>
+
+  <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+	<link rel="stylesheet" type="text/css" href="css/btn.css">
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+       
+    </script>
+</head>
+<body>
+    <div style="overflow: hidden;" id="myaccrdion" border="true"
+        fit="true" class="easyui-accordion">
+        <div title="终端概览"   style="padding:10px;">
+
+			<button id="armgl."  onclick="top.action(this);" width="100px" >
+				终端概览
+			</button>
+
+        </div>
+        <div title="终端监控"   style="padding:10px;" >
+			<div>
+            <button id="sys_rate_set."  onclick="top.action(this);">
+				系统监控
+			</button>
+			</div>
+			<div>
+			<button id="zdbpjk."  onclick="top.action(this);">
+				部品监控
+			</button>
+			</div>
+
+        </div>
+        <div title="终端管理"   style="padding:10px;">
+           <button id="arm_reboot."  onclick="top.action(this);">
+				终端重启
+			</button>
+
+			<button id="update."  onclick="top.action(this);">
+				手动升级
+			</button>
+
+			<button id="pzgl."  onclick="top.action(this);">
+				票证管理
+			</button>
+
+
+        </div>
+        <div title="退出程序"   style="padding:10px;">
+            <button id="exit." onclick="top.action(this);">
+				退出程序
+			</button>
+        </div>
+    </div>
+   
+</body>
+ </BODY>
+</HTML>

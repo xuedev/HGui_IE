@@ -1,0 +1,1 @@
+document.location.href="http://218.57.146.231:9001/jsp/record/rz/rz_cx_ry.jsp";

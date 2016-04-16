@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>wchar_t,char,std::string,std::wstring,CString转换</title>
+
+<link rel="stylesheet" href="http://blog.shuwo.org/usr/themes/jandan/style.css" type="text/css" media="screen" />
+
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="http://blog.shuwo.org/usr/themes/jandan/ie.css" /><![endif]-->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<meta name="description" content="wchar_t*,wchar_t,wchat_t数组,char,char*,char数组,std::string,std::wstring,CString....
+
+一些转换函数，主要针对宽字符。..." />
+<meta name="keywords" content="字符串,转换,wchar" />
+<meta name="generator" content="Typecho 0.8/10.8.15" />
+<meta name="template" content="jandan" />
+<link rel="pingback" href="http://blog.shuwo.org/action/xmlrpc" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.shuwo.org/action/xmlrpc?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.shuwo.org/action/xmlrpc?wlw" />
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://blog.shuwo.org/feed/archives/321/" />
+<link rel="alternate" type="application/rdf+xml" title="RSS 1.0" href="http://blog.shuwo.org/feed/rss/archives/321/" />
+<link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="http://blog.shuwo.org/feed/atom/archives/321/" />
+<script type="text/javascript">
+//<![CDATA[
+var TypechoComment = {
+    dom : function (id) {
+        return document.getElementById(id);
+    },
+    
+    create : function (tag, attr) {
+        var el = document.createElement(tag);
+        
+        for (var key in attr) {
+            el.setAttribute(key, attr[key]);
+        }
+        
+        return el;
+    },
+
+    reply : function (cid, coid) {
+        var comment = this.dom(cid), parent = comment.parentNode,
+            response = this.dom('respond-post-321'), input = this.dom('comment-parent'),
+            form = 'form' == response.tagName ? response : response.getElementsByTagName('form')[0],
+            textarea = response.getElementsByTagName('textarea')[0];
+
+        if (null == input) {
+            input = this.create('input', {
+                'type' : 'hidden',
+                'name' : 'parent',
+                'id'   : 'comment-parent'
+            });
+
+            form.appendChild(input);
+        }
+        
+        input.setAttribute('value', coid);
+
+        if (null == this.dom('comment-form-place-holder')) {
+            var holder = this.create('div', {
+                'id' : 'comment-form-place-holder'
+            });
+            
+            response.parentNode.insertBefore(holder, response);
+        }
+
+        comment.appendChild(response);
+        this.dom('cancel-comment-reply-link').style.display = '';
+        
+        if (null != textarea && 'text' == textarea.name) {
+            textarea.focus();
+        }
+        
+        return false;
+    },
+
+    cancelReply : function () {
+        var response = this.dom('respond-post-321'),
+        holder = this.dom('comment-form-place-holder'), input = this.dom('comment-parent');
+
+        if (null != input) {
+            input.parentNode.removeChild(input);
+        }
+
+        if (null == holder) {
+            return true;
+        }
+
+        this.dom('cancel-comment-reply-link').style.display = 'none';
+        holder.parentNode.insertBefore(response, holder);
+        return false;
+    }
+}
+//]]>
+</script>
+</head>
+
+
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+
+		<div class="logo">
+
+		<h1><a href="http://blog.shuwo.org/">老鼠的小窝</a></h1>
+
+        <h2>孤毒老鼠叙述生活、想法的地方. </h2></div>
+
+<div class="banner">
+
+<script type="text/javascript"><!--
+
+google_ad_client = "ca-pub-8205058885863618";
+
+/* 468X60横幅 */
+
+google_ad_slot = "9154838359";
+
+google_ad_width = 468;
+
+google_ad_height = 60;
+
+//-->
+
+</script>
+
+<script type="text/javascript"
+
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
+</script>
+
+</div>
+
+                <div class="nav">
+
+            <ul>
+
+                <li class="f"><a title="老鼠的小窝" href="http://blog.shuwo.org/">首页 - Home</a></li>
+
+                
+                
+                <li ><a href="http://blog.shuwo.org/category/life/" title="查看 生活如风 下的所有日志">生活如风</a></li>
+
+                
+                <li ><a href="http://blog.shuwo.org/category/linux/" title="查看 Linux 下的所有日志">Linux</a></li>
+
+                
+                <li ><a href="http://blog.shuwo.org/category/history/" title="查看 历史如镜 下的所有日志">历史如镜</a></li>
+
+                
+                <li ><a href="http://blog.shuwo.org/category/knowledge/" title="查看 知识如海 下的所有日志">知识如海</a></li>
+
+                
+                <li ><a href="http://blog.shuwo.org/category/internet/" title="查看 网事如烟 下的所有日志">网事如烟</a></li>
+
+                                 <li ><a href="http://blog.shuwo.org/guestbook" title="给我留言">留言板</a></li>
+                            </ul>
+
+        </div>
+
+	</div>
+
+	<div id="body">
+
+
+<script type="text/javascript"> 
+function copy_code(text) { 
+  if (window.clipboardData) { 
+    window.clipboardData.setData("Text", text) 
+    alert("已经成功复制到剪贴板！"); 
+  } else { 
+    var x=prompt('你的浏览器可能不能正常复制\n请你手动进行：',text); 
+  } 
+  //return false; 
+} 
+</script>
+<div id="content">
+	<div class="title"><span class="tags"><a href="http://blog.shuwo.org/tag/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a> <a href="http://blog.shuwo.org/tag/%E8%BD%AC%E6%8D%A2/">转换</a> <a href="http://blog.shuwo.org/tag/wchar/">wchar</a></span><a href="http://blog.shuwo.org/category/knowledge/">知识如海</a></div>
+	<div class="post f">
+        <div class="info">
+            <span class="small"><a href="http://blog.shuwo.org/archives/321/#comments">2</a></span>
+            <h2><a href="http://blog.shuwo.org/archives/321/" rel="bookmark">wchar_t,char,std::string,std::wstring,CString转换</a></h2>
+        </div>
+            <p class="time">&copy;   / Posted in <a href="http://blog.shuwo.org/category/knowledge/">知识如海</a> / August 25, 2009</p>
+		<p>wchar_t*,wchar_t,wchat_t数组,char,char*,char数组,std::string,std::wstring,CString....</p><p>一些转换函数，主要针对宽字符。字符串是根本啊，要好好掌握了</p><p><!--more--><br />
+#include &lt;string&gt;<br />
+// 使用CString必须使用MFC，并且不可包含&lt;windows.h&gt;<br />
+#define _AFXDLL<br />
+#include &lt;afx.h&gt;<br />
+using namespace std;<br />
+//----------------------------------------------------------------------------------<br />
+//将 单字节char* 转换为 宽字节 wchar*<br />
+inline wchar_t* AnsiToUnicode( const char* szStr )<br />
+{<br />
+int nLen = MultiByteToWideChar( CP_ACP, MB_PRECOMPOSED, szStr, -1, NULL, 0 );<br />
+if (nLen == 0)<br />
+{<br />
+   return NULL;<br />
+}<br />
+wchar_t* pResult = new wchar_t[nLen];<br />
+MultiByteToWideChar( CP_ACP, MB_PRECOMPOSED, szStr, -1, pResult, nLen );<br />
+return pResult;<br />
+}<br />
+//----------------------------------------------------------------------------------<br />
+// 将 宽字节wchar_t* 转换 单字节char*<br />
+inline char* UnicodeToAnsi( const wchar_t* szStr )<br />
+{<br />
+int nLen = WideCharToMultiByte( CP_ACP, 0, szStr, -1, NULL, 0, NULL, NULL );<br />
+if (nLen == 0)<br />
+{<br />
+   return NULL;<br />
+}<br />
+char* pResult = new char[nLen];<br />
+WideCharToMultiByte( CP_ACP, 0, szStr, -1, pResult, nLen, NULL, NULL );<br />
+return pResult;<br />
+}<br />
+//----------------------------------------------------------------------------------<br />
+// 将单字符 string 转换为宽字符 wstring<br />
+inline void Ascii2WideString( const std::string&amp; szStr, std::wstring&amp; wszStr )<br />
+{<br />
+int nLength = MultiByteToWideChar( CP_ACP, 0, szStr.c_str(), -1, NULL, NULL );<br />
+wszStr.resize(nLength);<br />
+LPWSTR lpwszStr = new wchar_t[nLength];<br />
+MultiByteToWideChar( CP_ACP, 0, szStr.c_str(), -1, lpwszStr, nLength );<br />
+wszStr = lpwszStr;<br />
+delete [] lpwszStr;<br />
+}<br />
+//----------------------------------------------------------------------------------<br />
+int _tmain(int argc, _TCHAR* argv[])<br />
+{<br />
+char*   pChar = "我喜欢char";<br />
+wchar_t* pWideChar = L"我讨厌wchar_t";<br />
+wchar_t   tagWideCharList[100] ;<br />
+char   ch = 'A';<br />
+char   tagChar[100] = {NULL};<br />
+CString   cStr;<br />
+std::string str;</p><p>// 注：设置语言环境以便输出WideChar<br />
+setlocale(LC_ALL,"chs");</p><p>// 注： char* 转换 wchar_t*<br />
+// 注： wchar_t 未重载 &lt;&lt; ，所以不可使用 cout &lt;&lt; 输出<br />
+pWideChar = AnsiToUnicode( pChar );<br />
+// 注：printf("%ls") 和 wprintf(L"%s") 一致<br />
+printf( "%ls\n", pWideChar );</p><p>// 注：wchar_t* 转换 wchar_t[]<br />
+wcscpy ( tagWideCharList, pWideChar );<br />
+wprintf( L"%s\n", tagWideCharList );</p><p>// 注：wchar_t[] 转换 wchar_t*<br />
+pWideChar = tagWideCharList;<br />
+wprintf( L"%s\n", pWideChar );</p><p>// 注：char 转换 string<br />
+str.insert( str.begin(), ch );<br />
+cout &lt;&lt; str &lt;&lt; endl;</p><p>// 注：wchar_t* 转换 string<br />
+pWideChar = new wchar_t[str.length()];<br />
+swprintf( pWideChar, L"%s", str.c_str());<br />
+wprintf( L"%s\n", pWideChar );</p><p>// 注：string 转换 char*<br />
+pChar = const_cast&lt;char*&gt;(str.c_str());<br />
+cout &lt;&lt; pChar &lt;&lt; endl;</p><p>// 注：char* 转换 string<br />
+str = std::string(pChar);<br />
+// 注： cout 的 &lt;&lt; 重载了string, 若printf 的话必须 printf("%s", str.c_str());<br />
+//   而不可 print( "%s", str ); 因为 str 是个 string 类<br />
+cout &lt;&lt; str &lt;&lt; endl;</p><p>// 注：string 转换 char[]<br />
+str = "无聊啊无聊";<br />
+strcpy( tagChar, str.c_str() );<br />
+printf( "%s\n", tagChar );</p><p>// 注：string 转换 CString;<br />
+cStr = str.c_str();</p><p>// 注：CString 转换 string<br />
+str = string(cStr.GetBuffer(cStr.GetLength()));</p><p>// 注：char* 转换 CString<br />
+cStr = pChar;</p><p>// 注：CString 转换 char*<br />
+pChar = cStr.GetBuffer( cStr.GetLength() );</p><p>// 注：CString 转换 char[]<br />
+strncpy( tagChar, (LPCTSTR)CString, sizeof(tagChar));</p><p>// 注：CString 转换 wchar_t*<br />
+pWideChar = cStr.AllocSysString();<br />
+printf( "%ls\n", pWideChar );<br />
+}</p>
+        <div class="break"></div>
+        <div class="postnext">
+            上一篇：<a href="http://blog.shuwo.org/archives/320/" title="我的生活真操蛋">我的生活真操蛋</a> | 下一篇：<a href="http://blog.shuwo.org/archives/323/" title="初学者吉他调弦——AP GUITAR TUNER">初学者吉他调弦——AP GUITAR TUNER</a>
+        </div>
+    </div>
+    <div id="comments">                        			<h4>本文有 2 篇评论 <a href="#respond" title="发表你的见解"> ↓↓</a></h4>                        <ol class="pages clearfix"></ol>                        <ol class="comment-list"><li id="comment-110" class="comment-body comment-parent comment-odd">
+    <div class="comment-author">
+        <img class="avatar" src="http://0.gravatar.com/avatar/8bd741f16f7b018c10474a24b02cf270?s=32&amp;r=G&amp;d=" alt="坏宝宝" width="32" height="32" />        <cite class="fn"><a href="http://www.myluo.com" rel="external nofollow">坏宝宝</a></cite>
+    </div>
+    <div class="comment-meta">
+        <a href="http://blog.shuwo.org/archives/321/comment-page-1#comment-110">September 1st, 2009 at 07:09 am</a>
+    </div>
+    <p>膜拜中。。。。。。</p>        <div class="comment-reply">
+        <a href="http://blog.shuwo.org/archives/321/comment-page-1?replyTo=110#respond-post-321" rel="nofollow" onclick="return TypechoComment.reply('comment-110', 110);">回复</a>    </div>
+</li>
+<li id="comment-3681" class="comment-body comment-parent comment-even">
+    <div class="comment-author">
+        <img class="avatar" src="http://1.gravatar.com/avatar/9c8a1f3c5d8b0d0e00eb6c9e78bbb655?s=32&amp;r=G&amp;d=" alt="C瓜哥" width="32" height="32" />        <cite class="fn"><a href="http://www.cguage.com" rel="external nofollow">C瓜哥</a></cite>
+    </div>
+    <div class="comment-meta">
+        <a href="http://blog.shuwo.org/archives/321/comment-page-1#comment-3681">February 7th, 2011 at 12:55 am</a>
+    </div>
+    <p>ATL宏USES_CONVERSION不是挺方便吗？</p>        <div class="comment-reply">
+        <a href="http://blog.shuwo.org/archives/321/comment-page-1?replyTo=3681#respond-post-321" rel="nofollow" onclick="return TypechoComment.reply('comment-3681', 3681);">回复</a>    </div>
+</li>
+</ol>                                                <div id="respond-post-321" class="respond">                        <div class="cancel-comment-reply">            <a id="cancel-comment-reply-link" href="http://blog.shuwo.org/archives/321/#respond-post-321" rel="nofollow" style="display:none" onclick="return TypechoComment.cancelReply();">取消回复</a>            </div>            			<h4 id="response">添加新评论 <a href="#header" title="回到页头"> ↑↑</a></h4>			<form method="post" action="http://blog.shuwo.org/archives/321/comment" id="comment_form">                				<p>					<input type="text" name="author" id="author" class="text" size="15" value="" />                    <label for="author">称呼<span class="required">*</span></label>				</p>				<p>					<input type="text" name="mail" id="mail" class="text" size="15" value="" />                    <label for="mail">电子邮件<span class="required">*</span></label>				</p>				<p>					<input type="text" name="url" id="url" class="text" size="15" value="" />                    <label for="url">网站<span class="required">*</span></label>				</p>                				<p><textarea rows="5" cols="50" name="text" class="textarea"></textarea></p>				<p><input type="submit" value="提交评论" class="submit" /></p>			</form>            </div>            		</div>
+</div>
+<div id="sidebar">
+<form method="get" action="" target="_top">
+  <label for="s" style="display:none;">输入您的搜索字词</label>
+  <input type="text" name="s" id="s" value="" />
+  <button type="submit">Search</button>
+</form>
+<h3>最新评论</h3>
+<ul>
+	
+    
+    <li><a href="http://blog.shuwo.org/archives/508/comment-page-1#comment-4096">
+      萧萧
+      </a>:
+      来看看！
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/419/comment-page-2#comment-4095">
+      反利网
+      </a>:
+      是很简洁
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/46/comment-page-1#comment-4094">
+      easenoNorma
+      </a>:
+      帮助别人，帮助自己！
+- 帮助人们在互联网上团结起来。
+- 学习，帮助他人，自觉地移动着成功。 “
+...
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/47/comment-page-1#comment-4093">
+      HK_星河
+      </a>:
+      谁会安装Flatpress？教我一下好吗？我QQ35434382
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/523/comment-page-1#comment-4092">
+      第三个
+      </a>:
+      2265.com 安卓游戏
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/509/comment-page-1#comment-4091">
+      ender
+      </a>:
+      @us vpn
+TP的，煎蛋主题，一搜就知道了
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/240/comment-page-1#comment-4090">
+      Coach Outlet
+      </a>:
+      很不错的小站，大家可以多交流交流
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/285/comment-page-1#comment-4089">
+      Coach Outlet
+      </a>:
+      很不错的小站，大家可以多交流交流
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/archives/287/comment-page-1#comment-4088">
+      Coach Outlet
+      </a>:
+      很不错的小站，大家可以多交流交流
+    </li>
+    
+    <li><a href="http://blog.shuwo.org/guestbook/comment-page-15#comment-4087">
+      Coach Outlet
+      </a>:
+      很不错的小站，大家可以多交流交流
+    </li>
+    
+</ul>
+<h3>最新文章</h3>
+<ul>
+  <li><a href="http://blog.shuwo.org/archives/523/">[转]史上最著名的10个思想实验</a></li>
+<li><a href="http://blog.shuwo.org/archives/522/">要累垮了</a></li>
+<li><a href="http://blog.shuwo.org/archives/521/">太累</a></li>
+<li><a href="http://blog.shuwo.org/archives/520/">挺累的，以前太安逸了……</a></li>
+<li><a href="http://blog.shuwo.org/archives/519/">一个人</a></li>
+<li><a href="http://blog.shuwo.org/archives/518/">浴火，不成灰，则重生吧</a></li>
+<li><a href="http://blog.shuwo.org/archives/517/">【转】dedecms get shell漏洞利用详细说明</a></li>
+<li><a href="http://blog.shuwo.org/archives/515/">5个小时，5个小时啊！！</a></li>
+<li><a href="http://blog.shuwo.org/archives/514/">男人，压力，生活……</a></li>
+<li><a href="http://blog.shuwo.org/archives/513/">最近状态非常不好</a></li>
+
+</ul>
+
+<h3>相关文章</h3>
+<ul>
+  <li><a href="http://blog.shuwo.org/archives/509/">一时无聊，把博客从WP转到了TE</a></li>
+<li><a href="http://blog.shuwo.org/archives/343/">const char * 转换为 char *</a></li>
+
+</ul>
+
+<h3>文章归档</h3>
+<ul class="li2">
+    <li><a href="http://blog.shuwo.org/2011/12/">December 2011</a></li>
+<li><a href="http://blog.shuwo.org/2011/09/">September 2011</a></li>
+<li><a href="http://blog.shuwo.org/2011/06/">June 2011</a></li>
+<li><a href="http://blog.shuwo.org/2011/05/">May 2011</a></li>
+<li><a href="http://blog.shuwo.org/2011/04/">April 2011</a></li>
+<li><a href="http://blog.shuwo.org/2011/03/">March 2011</a></li>
+<li><a href="http://blog.shuwo.org/2011/01/">January 2011</a></li>
+<li><a href="http://blog.shuwo.org/2010/12/">December 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/11/">November 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/10/">October 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/09/">September 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/08/">August 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/07/">July 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/06/">June 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/05/">May 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/04/">April 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/03/">March 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/02/">February 2010</a></li>
+<li><a href="http://blog.shuwo.org/2010/01/">January 2010</a></li>
+<li><a href="http://blog.shuwo.org/2009/12/">December 2009</a></li>
+<li><a href="http://blog.shuwo.org/2009/11/">November 2009</a></li>
+<li><a href="http://blog.shuwo.org/2009/10/">October 2009</a></li>
+<li><a href="http://blog.shuwo.org/2009/09/">September 2009</a></li>
+<li><a href="http://blog.shuwo.org/2009/08/">August 2009</a></li>
+<li><a href="http://blog.shuwo.org/2009/07/">July 2009</a></li>
+<li><a href="http://blog.shuwo.org/2009/06/">June 2009</a></li>
+<li><a href="http://blog.shuwo.org/2009/05/">May 2009</a></li>
+<li><a href="http://blog.shuwo.org/2008/12/">December 2008</a></li>
+<li><a href="http://blog.shuwo.org/2008/11/">November 2008</a></li>
+<li><a href="http://blog.shuwo.org/2008/10/">October 2008</a></li>
+<li><a href="http://blog.shuwo.org/2008/05/">May 2008</a></li>
+<li><a href="http://blog.shuwo.org/2007/11/">November 2007</a></li>
+<li><a href="http://blog.shuwo.org/2007/10/">October 2007</a></li>
+<li><a href="http://blog.shuwo.org/2007/09/">September 2007</a></li>
+<li><a href="http://blog.shuwo.org/2007/08/">August 2007</a></li>
+
+</ul>
+<h3>友情链接</h3>
+<ul>
+<li><a href="http://witmax.cn/" title="" target="_blank">晴枫</a></li>
+<li><a href="http://www.shuwo.org/" title="" target="_blank">鼠窝空间</a></li>
+<li><a href="http://www.shutaoba.com" title="" target="_blank">鼠淘吧</a></li>
+<li><a href="http://loger.me/" title="" target="_blank">片断De记忆</a></li>
+<li><a href="http://www.wuleilei.com/" title="" target="_blank">追梦</a></li>
+
+</ul>
+<h3>其他</h3>
+<ul>
+    
+                    <li class="last"><a href="http://blog.shuwo.org/admin/login.php">登录</a></li>
+                
+</ul>
+</div>
+
+    <div class="break"></div>
+
+</div>
+
+<div id="footer">&copy; 2011 老鼠的小窝, Powered by <a href="http://typecho.org/" target="_blank">Typecho)))</a>, Theme by Fufu, <a href="http://blog.shuwo.org/feed/">文章 RSS</a> and <a href="http://blog.shuwo.org/feed/comments/">评论 RSS</a>  <script language="javascript" type="text/javascript" src="http://js.users.51.la/2824081.js"></script>
+
+</div>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,6 @@
+{
+  "data":[
+	   {"url":"http://218.57.146.231:9001/jsp/record/login.jsp","js":"login.js"},
+	   {"url":"http://218.57.146.231:9001/jsp/record/rz/index_rz.jsp","js":"edit.js"}
+	  ]
+}
